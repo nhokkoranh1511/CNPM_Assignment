@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif
+}
+
+.shop_cont {
+    margin: 30px auto;
+}
+
+.shop_navbar_nav .shop-nav-link {
+    color: #000 !important;
+    padding: 0.5rem 0rem !important;
+    border-color: transparent;
+    margin-left: 1.5rem;
+    transition: none
+}
+.pro-pic {
+    transition: transform .5s ease;
+}
+.pro-pic:hover {
+    width: 100rem important!;
+    transform: scale(1.5);
+}
+.shop_navbar .shop-navbar-toggler:focus {
+    box-shadow: none
+}
+
+.shop_navbar_nav .shop-nav-link.active,
+.border-red {
+    border-bottom: 3px solid #b71c1c
+}
+
+.shop_navbar_nav .shop-nav-link:hover {
+    border-bottom: 3px solid #b71c1c
+}
+
+.container .product-item {
+    min-height: 450px;
+    border: none;
+    overflow: hidden;
+    position: relative;
+    border-radius: 0
+}
+
+.container .product-item .product {
+    width: 100%;
+    height: 350px;
+    position: relative;
+    overflow: hidden !important;
+    position: relative;
+    cursor: pointer
+}
+
+.container .product-item .product img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+
+.container .product-item .product .icons .icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.6s ease;
+    transform: rotate(180deg);
+    cursor: pointer
+}
+.icon {
+    border: 2px solid black;
+    background-color: rgba(255,255,255,0.5);
+}
+.fa-expand-arrows-alt, .fa-heart, .fa-shopping-bag {
+    color: black !important;
+    text-decoration: none;
+}
+.container .product-item .product .icons .icon:hover {
+    background-color: #b71c1c;
+}
+
+.container .product-item .product .icons .icon:nth-last-of-type(3) {
+    transition-delay: 0.2s
+}
+
+.container .product-item .product .icons .icon:nth-last-of-type(2) {
+    transition-delay: 0.15s
+}
+
+.container .product-item .product .icons .icon:nth-last-of-type(1) {
+    transition-delay: 0.1s
+}
+
+.container .product-item:hover .product .icons .icon {
+    transform: translateY(-60px)
+}
+
+.container .product-item .tag {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 500;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    padding: 0 0.4rem
+}
+.pro-pic {
+    width: 100%;
+    height: 100%;
+}
+.container .product-item .title {
+    font-size: 0.95rem;
+    letter-spacing: 0.5px
+}
+
+.container .product-item .fa-star {
+    font-size: 0.65rem;
+    color: goldenrod
+}
+
+.container .product-item .price {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 600
+}
+
+.fw-800 {
+    font-weight: 800
+}
+
+.bg-green {
+    background-color: #208f20 !important;
+    color: #fff
+}
+
+.bg-black {
+    background-color: #1f1d1d;
+    color: #fff
+}
+
+.bg-red {
+    background-color: #bb3535;
+    color: #fff
+}
+
+@media (max-width: 767.5px) {
+
+    .navbar-nav .nav-link.active,
+    .navbar-nav .nav-link:hover {
+        background-color: #b71c1c;
+        color: #fff !important
+    }
+
+    .navbar-nav .nav-link {
+        border: 3px solid transparent;
+        margin: 0.8rem 0;
+        display: flex;
+        border-radius: 10px;
+        justify-content: center
+    }
+}
+.lightbox {
+    /* Default to hidden */
+    display: none;
+  
+    /* Overlay entire screen */
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+    /* A bit of padding around image */
+    padding: 1em;
+  
+    /* Translucent background */
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Unhide the lightbox when it's the target */
+  .lightbox:target {
+    display: block;
+  }
+  
+  .lightbox span {
+    /* Full width and height */
+    display: block;
+    width: 100%;
+    height: 100%;
+  
+    /* Size and position background image */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .cross {
+      font-size:xx-large;
+      margin-left: 20px;
+      margin-top: 20px;
+
+  }
+  #appetizer, #beverage {
+      display:none;
+  }
+  .butt {
+      color: black;
+  }
