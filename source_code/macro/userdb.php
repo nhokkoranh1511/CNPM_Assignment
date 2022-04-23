@@ -62,7 +62,7 @@
         }
 
 		public function select_user_by_name($name){
-            $query = "SELECT * FROM `$this->table_name` WHERE `$this->table_name`.`name` = '$name';";
+            $query = "SELECT * FROM `$this->table_name` WHERE `$this->table_name`.`username` = '$name';";
             $result = $this->db->select($query);
 			if ($result == false) {
 				return false;

@@ -3,6 +3,7 @@
     include_once($path."/source_code/macro/userdb.php");
     include_once($path."/source_code/macro/fooddb.php");
     include_once($path."/source_code/macro/orderdb.php");
+    include_once($path."/source_code/macro/session.php");
     $userdb = new UserDB;
     $fooddb = new FoodDB;
     $orderdb = new OrderDB;
@@ -30,17 +31,25 @@
         }
 
         return $resArray;
+    }
 
-
+    function redirect($url) {
+        echo "<script>window.location=\"$url\"</script>";
     }
 ?>
 
 <?php //test
-    $result = $orderdb->get_order_list_by_customer_id("1","price",false);
+    /*
+    $result = $orderdb->get_order_list_all("price",true);
 
     if ($result!=false) {
-        var_dump($result);
+        $pagi = paginatedArray($result,1,2);
+		if ($pagi!= false) {
+		var_dump($pagi);
+		}
     }
+
+    */ //test lay danh sach cua tat ca order, lay trang 1, voi moi trang co 2 phan tu.
 ?>
 
 
