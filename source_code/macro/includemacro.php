@@ -36,20 +36,32 @@
     function redirect($url) {
         echo "<script>window.location=\"$url\"</script>";
     }
-?>
 
-<?php //test
-    /*
-    $result = $orderdb->get_order_list_all("price",true);
-
-    if ($result!=false) {
-        $pagi = paginatedArray($result,1,2);
-		if ($pagi!= false) {
-		var_dump($pagi);
-		}
+    function checkValidUserName($username) {
+        if(preg_match('/^[a-zA-Z0-9]{5,}$/', $username)) { // for english chars + numbers only, 5 char min
+            return true;    
+        } else {
+            return false;
+        }
     }
 
-    */ //test lay danh sach cua tat ca order, lay trang 1, voi moi trang co 2 phan tu.
+    function checkValidEmail($email) {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function checkValidFullName($full_name) {
+        if (!preg_match("/^[a-zA-Z\s]+$/",$full_name)) { // Only letters and white space allowed
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function checkValidPassword($password) {
+        return (strlen($password)> 4);
+    }
 ?>
-
-

@@ -3,8 +3,8 @@
     include_once($path."/source_code/handler/includeHandler.php")
 ?>
 
-<form method="get">  
-        <div class="container">   
+<form method="post">  
+        <div class="container" >   
             <label>Username : </label>   
             <input type="text" placeholder="Enter Username" name="username" required>  
             <label>Password : </label>   
@@ -14,8 +14,8 @@
         
 </form>   
 <?php
-    if (isset($_GET['username']) && isset($_GET['password'])) {
-        $loginHandler->login($_GET['username'],$_GET['password']);
+    if (isset($_POST['username']) && isset($_POST['password'])) {
+        $loginHandler->login($_POST['username'],$_POST['password']);
     }
 
     $loginHandler -> checkSessionLoginPage();
