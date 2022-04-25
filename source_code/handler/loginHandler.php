@@ -15,6 +15,7 @@ class LoginHandler
         $this->userdb = new UserDB;
         $this->loginUI = new loginUI;
         $this->sess = new Session;
+        $this->sess->init();
     }
 
     public function login($username, $password)
@@ -31,7 +32,7 @@ class LoginHandler
             $this->loginUI->warningBox("Wrong password");
             return;
         }
-        $this->sess-> init();
+
         $this->sess -> set("user_id", $result['id']);
         $this->sess -> set("privil",$result['privil']);
 
@@ -97,13 +98,12 @@ class LoginHandler
     }
 
     public function checkSessionLoginPage() {// redirect khoi login.php khi da dang nhap roi
-        $this->sess-> init();
         if ( $this->sess->checkSession("user_id")==true ) {
             
             if ($this->sess->get("privil")=="admin") {
                 redirect("/admin/admin.php");
             } else {
-                redirect("/user-menu.php");
+                redirect("/ugly-menu.php");
             }
         }
     }

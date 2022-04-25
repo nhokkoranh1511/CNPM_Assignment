@@ -34,9 +34,8 @@ class Session
 
     public static function checkSession($key)
     {
-        self::init();
         if (self::get($key) == false) {
-            self::destroy();
+            return false;
         } else {
             return true;
         }
