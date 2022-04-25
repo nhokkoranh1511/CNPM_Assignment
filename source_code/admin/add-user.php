@@ -45,8 +45,7 @@
                 <div class="checkbox mb-3">
                 </div>
 
-                <input class="w-100 btn btn-lg btn-dark" type="submit" name="submit"
-                    value="Thêm người dùng"></input>
+                <input class="w-100 btn btn-lg btn-dark" type="submit" name="submit" value="Thêm người dùng"></input>
 
             </form>
         </div>
@@ -56,9 +55,8 @@
 <?php addFooter(); ?>
 
 <?php
-    if (isset($_POST['username']) && isset($_POST['password'])) {
+    if (isset($_POST['submit'])) {
         $loginHandler->signup($_POST['username'],$_POST['password'],$_POST['repass'],$_POST['full_name'],$_POST['mail']);
+        redirect("admin.php");
     }
-
-    $loginHandler->checkSessionLoginPage();
 ?>
