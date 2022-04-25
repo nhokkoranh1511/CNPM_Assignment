@@ -46,18 +46,3 @@
 </div>
 
 <?php addFooter(); ?>
-
-
-
-
-
-
-
-
-
-
-
-
-<?php 
-    include('partial/footer.php')
-?>
