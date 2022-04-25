@@ -92,8 +92,6 @@ class LoginHandler
                 $this->login($username,$password);
             }
         }
-        
-
     }
 
     public function checkSessionLoginPage() {// redirect khoi login.php khi da dang nhap roi

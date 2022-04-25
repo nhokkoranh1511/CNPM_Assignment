@@ -1,5 +1,6 @@
 <?php 
-    include('partial/partial.php')
+    include('partial/partial.php');
+    include('/macro/usedb.php');
 ?>
 
 <?php addHeader("Tài khoản Admin"); ?>
@@ -16,33 +17,7 @@
 
 
 <div class="container">
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Họ và tên</th>
-                <th scope="col">username</th>
-                <th scope="col">password</th>
-                <th scope="col">Quyền</th>
-                <th scope="col">Email</th>
-                <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>
-                    <button type="button" class="btn btn-danger">Xóa</button>
-                    <button type="button" class="btn btn-secondary">Thay đổi</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+
 </div>
 
 <?php addFooter(); ?>

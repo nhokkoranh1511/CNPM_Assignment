@@ -71,7 +71,7 @@
 			}
         }
 
-		public function get_user_list_by_privil($privil,$sortfield,$ascending){
+		public function get_user_list_by_privil_array($privil,$sortfield,$ascending){
             
 			if ($ascending == true) {
 				$asc = "ASC";
@@ -93,6 +93,71 @@
 			}
         }
 		 //return false co nghia la fail
+
+		public function get_user_list_by_privil_query($privil,$sortfield,$ascending){
+            
+			if ($ascending == true) {
+				$asc = "ASC";
+			} else {
+				$asc = "DESC";
+			}
+
+			$query = "SELECT * FROM `$this->table_name`  WHERE `$this->table_name`.`privil` = '$privil' ORDER BY $sortfield $asc;";
+			$result = $this->db->select($query);
+
+			return $result;
+        }
+		 //return false co nghia la fail
+
+		function table_for_user_managesment($res){
+			echo <<<EOL
+			<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Họ và tên</th>
+					<th scope="col">username</th>
+					<th scope="col">password</th>
+					<th scope="col">quyền</th>
+					<th scope="col">email</th>
+				</tr>
+			</thead>
+			<tbody>
+			EOL;
+
+
+			$count = mysqli_num_rows($res);
+
+			if ($count > 0) {
+				while($row = mysqli_fetch_assoc($res)) {
+					$id 		= $row['id'];
+					$full_name 	= $row['full_name'];
+					$username 	= $row['username'];
+					$password 	= $row['password'];
+					$privil 	= $row['privil'];
+					$email 		= $row['email'];
+
+					echo <<<EOL
+					<tr>
+						<th scope="row">$id</th>
+						<td>$full_name</td>
+						<td>$username</td>
+						<td>$password</td>
+						<td>$privil</td>
+						<td>$email</td>
+					</tr>
+					EOL;
+				}
+			}
+			else {
+
+			}
+
+			echo <<<EOL
+			</tbody>
+			</table>
+			EOL;
+		}
 	}
     
 ?>
