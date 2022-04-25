@@ -1,7 +1,7 @@
-<?php 
-    include('partial/partial.php');
-    $path = $_SERVER['DOCUMENT_ROOT'];
-    include_once($path."/macro/userdb.php");
+<?php
+include('partial/partial.php');
+$path = $_SERVER['DOCUMENT_ROOT'];
+include_once($path . "/macro/userdb.php");
 ?>
 
 <?php addHeader("Quản lý người dùng"); ?>
@@ -17,16 +17,71 @@
 </div>
 
 <div class="container">
-<?php
+    <?php
     $user = new UserDB();
     $result = $user->get_user_list_by_privil_query("admin", "id", "ASC");
+    ?>
 
-    echo $user->table_for_user_managesment($result);
-    echo $user->table_for_user_managesment($result);
+    <table class="table" id='user_table'>
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Họ và tên</th>
+                <th scope="col">username</th>
+                <th scope="col">password</th>
+                <th scope="col">quyền</th>
+                <th scope="col">email</th>
+                <th scope="col">Chỉnh sửa</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <?php
+                $count = mysqli_num_rows($result);
+
+                if ($count > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $id             = $row['id'];
+                        $full_name      = $row['full_name'];
+                        $username       = $row['username'];
+                        $password       = $row['password'];
+                        $privil         = $row['privil'];
+                        $email          = $row['email'];
+                        ?>
+
+                        <tr>
+                            <th scope="row"><?php echo $id;     ?></th>
+                            <td><?php echo $full_name;          ?></td>
+                            <td><?php echo $username;    ?></td>
+                            <td><?php echo $password;    ?></td>
+                            <td><?php echo $privil;      ?></td>
+                            <td><?php echo $email;       ?></td>
+                            <td>
+                                <a href="/admin/macro/deleteUser.php">
+                                    <button type="button" class="btn btn-danger">Xóa</button>
+                                </a>
+                                <a href="/admin/macro/updateUser.php">
+                                    <button type="button" class="btn btn-secondary">Chỉnh sửa</button>
+                                </a>
+                            </td>
+                        </tr>
+
+                        <?php
+
+                    }
+                }
+            ?>
+        </tbody>
+    </table>
 
 
-?>
 </div>
 
+<script>
+    function deleteUser(id) {
+        var result = "<?php $user->delete_user_by_id(" + id +"); ?>"
+        document.write(result);
+    }
+</script>
 
 <?php addFooter(); ?>

@@ -108,56 +108,6 @@
 			return $result;
         }
 		 //return false co nghia la fail
-
-		function table_for_user_managesment($res){
-			echo <<<EOL
-			<table class="table" id='user_table'>
-			<thead>
-				<tr>
-					<th scope="col">ID</th>
-					<th scope="col">Họ và tên</th>
-					<th scope="col">username</th>
-					<th scope="col">password</th>
-					<th scope="col">quyền</th>
-					<th scope="col">email</th>
-				</tr>
-			</thead>
-			<tbody>
-			EOL;
-
-
-			$count = mysqli_num_rows($res);
-
-			if ($count > 0) {
-				while($row = mysqli_fetch_assoc($res)) {
-					$id 		= $row['id'];
-					$full_name 	= $row['full_name'];
-					$username 	= $row['username'];
-					$password 	= $row['password'];
-					$privil 	= $row['privil'];
-					$email 		= $row['email'];
-
-					echo <<<EOL
-					<tr>
-						<th scope="row">$id</th>
-						<td>$full_name</td>
-						<td>$username</td>
-						<td>$password</td>
-						<td>$privil</td>
-						<td>$email</td>
-					</tr>
-					EOL;
-				}
-			}
-			else {
-
-			}
-
-			echo <<<EOL
-			</tbody>
-			</table>
-			EOL;
-		}
 	}
     
 ?>
