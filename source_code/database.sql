@@ -71,6 +71,38 @@ CREATE TABLE `tbl_user` (
 --
 -- Chỉ mục cho các bảng đã đổ
 --
+--
+-- Đang đổ dữ liệu cho bảng `tbl_food`
+--
+
+INSERT INTO `tbl_food` (`id` , `title` , `description` , `price` , `image` , `category_id` , `feature` , `active` ) VALUES
+('P1', 'Pizza Golden 4 Cheese' , 'Phủ phô mai Gouda thơm vàng' , '309.000 VNĐ', '\"/images/Pizza1.png\"', 'P' ,'True','True'),
+('P2', 'Pizza Hải Sản Pesto Xanh' , 'Tôm, cua, mực và bông cải xanh tươi ngon trên nền sốt Pesto Xanh' , '169.000 VNĐ', '\"/images/Pizza2.png\"', 'P' ,'True','True'),
+('P3', 'Pizza Hải Sản Nhiệt Đới' , 'Tôm, nghêu, mực cua, dứa với sốt Thousand Island' , '139.000 VNĐ', '\"/images/Pizza3.png\"', 'P' ,'True','True'),
+('P4', 'Pizza Aloha' , 'Thịt nguội, xúc xích tiêu cay và dứa hòa quyện với sốt Thousand Island' , '139.000 VNĐ', '\"/images/Pizza4.png\"', 'P' ,'True','True'),
+('P5', 'Pizza Gà Nướng 3 Vị' , 'Gà nướng, gà bơ tỏi và gà ướp sốt nấm' , '129.000 VNĐ', '\"/images/Pizza5.png\"', 'P' ,'True','True'),
+('P6', 'Pizza Thịt Nguội Kiểu Canada' , 'Sự kết hợp giữa thịt nguội và bắp ngọt' , '129.000 VNĐ', '\"/images/Pizza6.png\"',  'P' ,'True','True'),
+('P7', 'Pizza 5 Loại Thịt Đặc Biệt' , 'Xúc xích lợn và bò đặc trưng của Ý, giăm bông, thịt xông khói' , '129.000 VNĐ', '\"/images/Pizza7.png\"', 'P' ,'True','True'),
+('P8', 'Pizza Hawaiian' , 'Giăm bông, thịt muối và dứa ' , '119.000 VNĐ', '\"/images/Pizza8.png\"', 'P' ,'True','True'),
+('P9', 'Pizza Phô Mai' , 'Bánh Pizza với vô vàn phô mai để bạn tha hồ tận hưởng' , '119.000 VNĐ', '\"/images/Pizza9.png\"', 'P' ,'True','True'),
+('D1', 'Pepsi' , 'Lon' , '29.000 VNĐ', '\"/images/Drink1.png\"',  'D' ,'True','True'),
+('D2', '7up' , 'Lon' , '29.000 VNĐ', '\"/images/Drink2.png\"',  'D' ,'True','True'),
+('D3', 'Coca Cola' , 'Lon' , '29.000 VNĐ', '\"/images/Drink3.png\"', 'D' ,'True','True'),
+('D4', 'Pepsi Black' , 'Lon' , '29.000 VNĐ', '\"/images/Drink4.png\"', 'D' ,'True','True'),
+('D5', 'Mirinda Soda Kem' , 'Lon' , '29.000 VNĐ', '\"/images/Drink5.png\"', 'D' ,'True','True'),
+('D6', 'Aquafina' , 'Chai' , '29.000 VNĐ', '\"/images/Drink6.png\"', 'D' ,'True','True'),
+('D7', 'Trà sữa Tea Break' , 'Chai' , '29.000 VNĐ', '\"/images/Drink7.png\"', 'D' ,'True','True'),
+('D8', 'All-Free nước uống vị lúa mạch' , 'Lon' , '29.000 VNĐ', '\"/images/Drink8.png\"',  'D' ,'True','True'),
+('D9', 'Pepsi Black Lime' , 'Lon' , '29.000 VNĐ', '\"/images/Drink9.png\"', 'D' ,'True','True'),
+('S1', 'Ricotta Cheese, Parma Ham Wrap' , 'Phô mai Riotta thơm béo và thịt xông khói' , '89.000 VNĐ', '\"/images/Side1.png\"', 'S' ,'True','True'),
+('S2', 'Khoai tây đút lò' , 'Khoai tây nướng lò ăn cùng sốt kem' , '49.000 VNĐ', '\"/images/Side2.png\"', 'S' ,'True','True'),
+('S3', 'Salad cá ngừ' , 'Rau củ và cá ngừ sốt giấm' , '69.000 VNĐ', '\"/images/Side3.png\"', 'S' ,'True','True'),
+('S4', 'Xúc xích xông khói đút lò' , 'Xúc xích đức sốt BBQ' , '69.000 VNĐ', '\"/images/Side4.png\"', 'S' ,'True','True'),
+('S5', 'Gà tẩm bột rán' , 'Cánh gà được phủ bởi một lớp bột chiên giòn' , '79.000 VNĐ', '\"/images/Side5.png\"',  'S' ,'True','True'),
+('S6', 'Mì Ý sốt kem hải sản' , 'Mỳ Ý rán với các loại hải sản tươi ngon cùng sốt kem' , '89.000 VNĐ', '\"/images/Side6.png\"',  'S' ,'True','True'),
+('S7', 'Salad Cá hồi Na-uy' , 'Salad với cá hồi Na-uy với bắp cải đỏ, cà chua bi, ngô với sốt Yuzu' , '89.000 VNĐ', '\"/images/Side7.png\"', 'S' ,'True','True'),
+('S8', 'Salad Cam' , 'Sự kết hợp tươi ngon giữ rau củ và cam' , '59.000 VNĐ', '\"/images/Side8.png\"', 'S' ,'True','True'),
+('S9', 'Nui Bỏ Lò Hải Sản Sốt Hương Nhu' , 'Đánh thức vị giác với sốt hương nhu độc đáo, kết hợp cùng hải sản tươi ngon đậm đà' , '59.000 VNĐ', '\"/images/Side9.png\"',  'S' ,'True','True');
 
 --
 -- Đang đổ dữ liệu cho bảng `tbl_food`
