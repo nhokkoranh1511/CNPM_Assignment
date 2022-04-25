@@ -4,7 +4,7 @@
 
 <div class="container">
     <h1>
-        Tài khoản Admin
+        Tài khoản
     </h1>
 </div>
 

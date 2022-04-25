@@ -99,11 +99,11 @@ class LoginHandler
     public function checkSessionLoginPage() {// redirect khoi login.php khi da dang nhap roi
         $this->sess-> init();
         if ( $this->sess->checkSession("user_id")==true ) {
-
+            
             if ($this->sess->get("privil")=="admin") {
                 redirect("/source_code/admin/admin.php");
             } else {
-                redirect("/source_code/sample.php");
+                redirect("/source_code/user-menu.php");
             }
         }
     }
