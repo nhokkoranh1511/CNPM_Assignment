@@ -71,6 +71,40 @@
 			}
         }
 
+		public function get_user_list_array($sortfield,$ascending){
+			if ($ascending == true) {
+				$asc = "ASC";
+			} else {
+				$asc = "DESC";
+			}
+
+			$query = "SELECT * FROM `$this->table_name` ORDER BY $sortfield $asc;";
+			$result = $this->db->select($query);
+
+			if ($result == false) {
+				return false;
+			} else { // fetch into array
+				$resultArr= array();
+				while ($row = $result ->fetch_assoc()) {
+					array_push($resultArr,$row);
+				}
+				return $resultArr;
+			}
+        }
+
+		public function get_user_list_query($sortfield,$ascending){
+			if ($ascending == true) {
+				$asc = "ASC";
+			} else {
+				$asc = "DESC";
+			}
+
+			$query = "SELECT * FROM `$this->table_name` ORDER BY $sortfield $asc;";
+			$result = $this->db->select($query);
+
+			return $result;
+        }
+
 		public function get_user_list_by_privil_array($privil,$sortfield,$ascending){
             
 			if ($ascending == true) {

@@ -19,7 +19,7 @@ include_once($path . "/macro/userdb.php");
 <div class="container">
     <?php
     $user = new UserDB();
-    $result = $user->get_user_list_by_privil_query("admin", "id", "ASC");
+    $result = $user->get_user_list_query("id", "ASC");
     ?>
 
     <table class="table" id='user_table'>
@@ -57,11 +57,11 @@ include_once($path . "/macro/userdb.php");
                             <td><?php echo $privil;      ?></td>
                             <td><?php echo $email;       ?></td>
                             <td>
-                                <a href="/admin/macro/deleteUser.php">
-                                    <button type="button" class="btn btn-danger">Xóa</button>
+                                <a class="btn btn-danger" href="/admin/macro/deleteUser.php?id=<?php echo $id; ?>">
+                                        Xóa
                                 </a>
-                                <a href="/admin/macro/updateUser.php">
-                                    <button type="button" class="btn btn-secondary">Chỉnh sửa</button>
+                                <a class="btn btn-secondary" href="/admin/macro/updateUser.php?id=<?php echo $id; ?>">
+                                        Chỉnh sửa
                                 </a>
                             </td>
                         </tr>
