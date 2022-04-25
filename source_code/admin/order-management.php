@@ -1,6 +1,8 @@
 <?php 
-    include('partial/header.php')
+    include('partial/partial.php')
 ?>
+
+<?php addHeader("Quản lý đơn hàng"); ?>
 
 <div class="container">
     <h1>
@@ -42,16 +44,4 @@
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-<?php 
-    include('partial/footer.php')
-?>
+<?php addFooter(); ?>

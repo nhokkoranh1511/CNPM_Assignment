@@ -1,6 +1,8 @@
 <?php 
-    include('partial/header.php')
+    include('partial/partial.php')
 ?>
+
+<?php addHeader("Thêm tài khoản"); ?>
 
 <div class="container">
     <h1>
@@ -45,9 +47,7 @@
     </div>
 </div>
 
-<?php 
-    include('partial/footer.php')
-?>
+<?php addFooter(); ?>
 
 <?php
     // Save to database

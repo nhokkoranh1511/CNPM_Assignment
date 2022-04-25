@@ -1,11 +1,12 @@
 <?php 
-    include('partial/header.php')
+    include('partial/partial.php')
 ?>
+
+<?php addHeader("Quản lý người dùng"); ?>
 
 <div class="container">
     <h1>
-        Quản lý khách hàng
-    </h1>
+        Quản lý người dùng
 </div>
 
 
@@ -42,16 +43,4 @@
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-<?php 
-    include('partial/footer.php')
-?>
+<?php addFooter(); ?>

@@ -1,6 +1,8 @@
 <?php 
-    include('partial/header.php')
+    include('partial/partial.php')
 ?>
+
+<?php addHeader("Tài khoản Admin"); ?>
 
 <div class="container">
     <h1>
@@ -42,6 +44,8 @@
         </tbody>
     </table>
 </div>
+
+<?php addFooter(); ?>
 
 
 
