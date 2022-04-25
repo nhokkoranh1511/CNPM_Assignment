@@ -15,7 +15,8 @@
 
 <div class="text-center container">
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
             <form id="add-user-form" method="POST" action="">
                 <div class="form-floating">
                     <input type="text" class="form-control" name="username" placeholder="username">
@@ -41,12 +42,11 @@
                     <input type="email" class="form-control" name="mail" placeholder="mail">
                     <label for="password">Email <span id="mailWarn" class="error">*</span></label>
                 </div>
-
                 <div class="checkbox mb-3">
                 </div>
-
                 <input class="w-100 btn btn-lg btn-dark" type="submit" name="submit" value="Thêm người dùng"></input>
 
+                <div class="col-sm-3"></div>
             </form>
         </div>
     </div>
@@ -57,6 +57,5 @@
 <?php
     if (isset($_POST['submit'])) {
         $loginHandler->signup($_POST['username'],$_POST['password'],$_POST['repass'],$_POST['full_name'],$_POST['mail']);
-        redirect("admin.php");
     }
 ?>
