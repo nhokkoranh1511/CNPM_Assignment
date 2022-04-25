@@ -96,7 +96,7 @@ global $userHandler;
                             </div>
                         </li>
                         <li class="nav-item me-3 me-lg-0">
-                            <a class="nav-link" href="#!">
+                            <a class="nav-link" href="/ugly-menu.php">
                                 <div class="nav-link book-love">PIZZA'S 5P</div>
                             </a>
                         </li>
