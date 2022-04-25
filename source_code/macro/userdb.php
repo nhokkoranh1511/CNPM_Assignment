@@ -111,7 +111,7 @@
 
 		function table_for_user_managesment($res){
 			echo <<<EOL
-			<table class="table">
+			<table class="table" id='user_table'>
 			<thead>
 				<tr>
 					<th scope="col">ID</th>

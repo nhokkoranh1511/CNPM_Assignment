@@ -22,6 +22,8 @@
     $result = $user->get_user_list_by_privil_query("admin", "id", "ASC");
 
     echo $user->table_for_user_managesment($result);
+    echo $user->table_for_user_managesment($result);
+
 
 ?>
 </div>
