@@ -8,7 +8,18 @@
     $fooddb = new FoodDB;
     $orderdb = new OrderDB;
 
-    
+    function number_of_page($originalArray, $item_per_page) {
+        $no_of_element = count($originalArray);
+        $no_of_page = intdiv($no_of_element,$item_per_page);
+        
+        if ($no_of_element%$item_per_page!=0) {
+            $no_of_page++;
+        }
+        
+        return $no_of_page;
+    }
+
+
     function paginatedArray($originalArray, $page_index, $item_per_page) { // 0 is the first page
         $no_of_element = count($originalArray);
         $no_of_page = intdiv($no_of_element,$item_per_page);
