@@ -1,7 +1,7 @@
 <?php
-include('partial/partial.php');
-$path = $_SERVER['DOCUMENT_ROOT'];
-include_once($path . "/macro/userdb.php");
+    include('partial/partial.php');
+    $path = $_SERVER['DOCUMENT_ROOT'];
+    include_once($path . "/macro/includemacro.php");    
 ?>
 
 <?php addHeader("Quản lý người dùng"); ?>
@@ -16,10 +16,29 @@ include_once($path . "/macro/userdb.php");
     <button type="button" class="btn btn-secondary" onclick="window.location.href='add-user.php';">Thêm tài khoản</button>
 </div>
 
+<div class="container center">
+    <?php
+        if (isset($_SESSION['delete'])) {
+            echo $_SESSION['delete'];
+            unset($_SESSION['delete']);
+        }
+
+        if (isset($_SESSION['update'])) {
+            echo $_SESSION['update'];
+            unset($_SESSION['update']);
+        }
+
+        if (isset($_SESSION['add'])) {
+            echo $_SESSION['add'];
+            unset($_SESSION['add']);
+        }
+    ?>
+</div>
+
 <div class="container">
     <?php
-    $user = new UserDB();
-    $result = $user->get_user_list_query("id", "ASC");
+        $user = new UserDB();
+        $result = $user->get_user_list_query("id", "ASC");
     ?>
 
     <table class="table" id='user_table'>
@@ -37,7 +56,12 @@ include_once($path . "/macro/userdb.php");
 
         <tbody>
             <?php
-                $count = mysqli_num_rows($result);
+                if ($result) {
+                    $count = mysqli_num_rows($result);
+                }
+                else {
+                    $count = 0;
+                }
 
                 if ($count > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
@@ -52,10 +76,10 @@ include_once($path . "/macro/userdb.php");
                         <tr>
                             <th scope="row"><?php echo $id;     ?></th>
                             <td><?php echo $full_name;          ?></td>
-                            <td><?php echo $username;    ?></td>
-                            <td><?php echo $password;    ?></td>
-                            <td><?php echo $privil;      ?></td>
-                            <td><?php echo $email;       ?></td>
+                            <td><?php echo $username;           ?></td>
+                            <td><?php echo $password;           ?></td>
+                            <td><?php echo $privil;             ?></td>
+                            <td><?php echo $email;              ?></td>
                             <td>
                                 <a class="btn btn-danger" href="/admin/macro/deleteUser.php?id=<?php echo $id; ?>">
                                         Xóa
@@ -65,9 +89,7 @@ include_once($path . "/macro/userdb.php");
                                 </a>
                             </td>
                         </tr>
-
                         <?php
-
                     }
                 }
             ?>
@@ -76,12 +98,5 @@ include_once($path . "/macro/userdb.php");
 
 
 </div>
-
-<script>
-    function deleteUser(id) {
-        var result = "<?php $user->delete_user_by_id(" + id +"); ?>"
-        document.write(result);
-    }
-</script>
 
 <?php addFooter(); ?>
