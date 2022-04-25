@@ -1,8 +1,8 @@
 <?php
 
 $path = $_SERVER['DOCUMENT_ROOT'];
-include_once($path . "/source_code/macro/includemacro.php");
-include_once($path . "/source_code/ui/includeUI.php");
+include_once($path . "/macro/includemacro.php");
+include_once($path . "/ui/includeUI.php");
 
 
 class OrderHandler

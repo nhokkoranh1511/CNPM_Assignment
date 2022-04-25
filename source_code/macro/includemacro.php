@@ -1,9 +1,9 @@
 <?php
     $path = $_SERVER['DOCUMENT_ROOT'];
-    include_once($path."/source_code/macro/userdb.php");
-    include_once($path."/source_code/macro/fooddb.php");
-    include_once($path."/source_code/macro/orderdb.php");
-    include_once($path."/source_code/macro/session.php");
+    include_once($path."/macro/userdb.php");
+    include_once($path."/macro/fooddb.php");
+    include_once($path."/macro/orderdb.php");
+    include_once($path."/macro/session.php");
     $userdb = new UserDB;
     $fooddb = new FoodDB;
     $orderdb = new OrderDB;

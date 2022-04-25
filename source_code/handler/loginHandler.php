@@ -1,8 +1,8 @@
 <?php
 
 $path = $_SERVER['DOCUMENT_ROOT'];
-include_once($path . "/source_code/macro/includemacro.php");
-include_once($path . "/source_code/ui/includeUI.php");
+include_once($path . "/macro/includemacro.php");
+include_once($path . "/ui/includeUI.php");
 
 
 class LoginHandler
@@ -101,9 +101,9 @@ class LoginHandler
         if ( $this->sess->checkSession("user_id")==true ) {
             
             if ($this->sess->get("privil")=="admin") {
-                redirect("/source_code/admin/admin.php");
+                redirect("/admin/admin.php");
             } else {
-                redirect("/source_code/user-menu.php");
+                redirect("/user-menu.php");
             }
         }
     }
@@ -118,7 +118,7 @@ class LoginHandler
 
     public function logout(){
         $this->sess->destroy();
-        redirect("/source_code/login.php");
+        redirect("/login.php");
     }
 }
 
