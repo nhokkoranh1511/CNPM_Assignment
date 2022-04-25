@@ -85,7 +85,7 @@ class LoginHandler
         }
 
         if ($valid==true) {
-            $result = $this->userdb->insert_user($username,$password,$full_name,"user",$email);
+            $result = $this->userdb->insert_user($username,$password,$full_name,"customer",$email);
             if ($result == false) {
                 // UI: unexpected error.
             } else {

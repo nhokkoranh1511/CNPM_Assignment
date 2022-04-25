@@ -114,6 +114,28 @@
 				return $resultArr;
 			}
         }
+
+		public function get_order_list_by_customer_id_and_status($customer_id,$status,$sortfield,$ascending){
+            
+			if ($ascending == true) {
+				$asc = "ASC";
+			} else {
+				$asc = "DESC";
+			}
+
+			$query = "SELECT * FROM `$this->table_name` WHERE `$this->table_name`.`status` = '$status' AND `$this->table_name`.`customer_id` = '$customer_id'  ORDER BY $sortfield $asc;";
+			$result = $this->db->select($query);
+
+			if ($result == false) {
+				return false;
+			} else { // fetch into array
+				$resultArr= array();
+				while ($row = $result ->fetch_assoc()) {
+					array_push($resultArr,$row);
+				}
+				return $resultArr;
+			}
+        }
 		 //return false co nghia la fail
 	}
     
