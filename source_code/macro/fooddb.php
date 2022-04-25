@@ -80,7 +80,7 @@
 				$asc = "DESC";
 			}
 
-			$query = "SELECT * FROM `$this->table_name` 'ORDER BY $sortfield' $asc'";
+			$query = "SELECT * FROM `$this->table_name` ORDER BY $sortfield $asc;";
 			$result = $this->db->select($query);
 
 			if ($result == false) {
