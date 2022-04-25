@@ -72,7 +72,6 @@
         }
 
 		public function get_user_list_by_privil($privil,$sortfield,$ascending){
-            
 			if ($ascending == true) {
 				$asc = "ASC";
 			} else {
