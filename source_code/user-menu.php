@@ -1,6 +1,6 @@
 <?php
     $path = $_SERVER['DOCUMENT_ROOT'];
-    include_once($path."/source_code/handler/includeHandler.php");
+    include_once($path."/handler/includeHandler.php");
     
     if ( $loginHandler -> checkLogin() == false) {
         //UI
@@ -13,7 +13,7 @@
     ?>
 
 
-    <button type="submit" onclick="window.location.href='/source_code/logout.php'">Logout</button> <br>
+    <button type="submit" onclick="window.location.href='/logout.php'">Logout</button> <br>
     <button type="button" onclick="">Quan ly tai khoan</button>
     <button type="button" onclick="">Quan ly don hang</button>
 

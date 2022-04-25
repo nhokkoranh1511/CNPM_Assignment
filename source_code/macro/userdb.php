@@ -4,7 +4,7 @@
 	include_once ($filepath.'/../helpers/format.php');
     */
 	$path = $_SERVER['DOCUMENT_ROOT'];
-    include_once ($path.'/source_code/macro/database.php');
+    include_once ($path.'/macro/database.php');
 ?>
 
 <?php
