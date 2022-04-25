@@ -3,7 +3,6 @@
 $path = $_SERVER['DOCUMENT_ROOT'];
 include_once($path . "/source_code/macro/includemacro.php");
 include_once($path . "/source_code/ui/includeUI.php");
-include_once($path . "/source_code/class/user.php");
 
 
 class UserHandler
@@ -11,25 +10,68 @@ class UserHandler
     private $userdb;
     private $loginUI;
     private $sess;
-    private $loggedUser;
+    public $loggedUser;
 
-    public function include(){ //dung ham nay o nhung trang da dang nhap user
+    public function __construct(){ //dung ham nay o nhung trang da dang nhap user
         $this->userdb = new UserDB;
         $this->loginUI = new loginUI;
         $this->sess = new Session;
 
-        $result = $this->userdb->select_user_by_id( $this->sess->get("user_id") );// get logged user 
-        if ($result == false) {
-            $this->loginUI->warningBox("Invalid User");
-            redirect("/source_code/login.php");
+        $this->sess->init();
+        if ( $this->sess->get("user_id")!=false) {
+            $this->loggedUser = $this->userdb->select_user_by_id( $this->sess->get("user_id") );
         } else {
-            $this->loggedUser = new User($result['id'],$result['username'],$result['password'],$result['full_name'],$result['privil'],$result['email']);
+            $this->loggedUser = false;
+        }
+    }
+
+    public function changePassword($oldPassword,$password,$repassword) {
+        if ($oldPassword!= $this->$this->loggedUser['password']) {
+            //UI
+            return;
+        }
+
+        if (!checkValidPassword($password)) {
+            //UI
+            return;
+        }
+
+        if ($password!=$repassword) {
+            //UI
+            return;
+        }
+        
+        $result = $this->userdb->update_user_by_id( $this->loggedUser['id'],"password",$password);
+        if ($result == false) {
+            //UI failed
         }
 
     }
 
-    public function hello() {
-        $this->loginUI->successBox($this->loggedUser->username) ;
+    public function changeEmail($email) {
+        if (!checkValidEmail($email)) {
+            //UI
+            return;
+        }
+        
+        $result = $this->userdb->update_user_by_id( $this->loggedUser['id'],"email",$email);
+        if ($result == false) {
+            //UI failed
+        }
+    }
+
+    public function changeFullName($full_name) {
+        if (!checkValidFullName($full_name)) {
+            //UI
+            return;
+        }
+        
+        $result = $this->userdb->update_user_by_id( $this->loggedUser['id'],"full_name",$full_name);
+        if ($result == false) {
+            //UI failed
+        }
+
+
     }
 
 }

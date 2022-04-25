@@ -3,7 +3,6 @@
 $path = $_SERVER['DOCUMENT_ROOT'];
 include_once($path . "/source_code/macro/includemacro.php");
 include_once($path . "/source_code/ui/includeUI.php");
-include_once($path . "/source_code/class/user.php");
 
 
 class LoginHandler
@@ -38,8 +37,69 @@ class LoginHandler
 
     }
 
+    public function signup($username, $password,$repass,$full_name,$email)
+    {
+        $valid = true;
+        if (!checkValidUserName($username)) {
+            $valid = false;
+            //UI
+            $this->loginUI->warningBox("Invalid Username");
+            echo "<br>";
+        }
+
+        if ( $this->userdb->select_user_by_name($username)!= false) {
+            $valid = false;
+            //UI
+            $this->loginUI->warningBox("Username exist");
+            echo "<br>";
+        }
+
+        if (!checkValidPassword($password)) {
+            $valid = false;
+            // UI
+            $this->loginUI->warningBox("Invalid Password");
+            echo "<br>";
+        }
+
+        if ($password!= $repass) {
+            $valid = false;
+            $this->loginUI->warningBox("Repassword didnt match");
+            echo "<br>";
+            // UI
+        }
+
+        if (!checkValidFullName($full_name)) {
+            $valid = false;
+
+            $this->loginUI->warningBox("Invalid fullname");
+            echo "<br>";
+            
+            // UI
+        }
+
+        if (!checkValidEmail($email)) {
+            $valid = false;
+            // UI
+            $this->loginUI->warningBox("Invalid email");
+            echo "<br>";
+        }
+
+        if ($valid==true) {
+            $result = $this->userdb->insert_user($username,$password,$full_name,"customer",$email);
+            if ($result == false) {
+                // UI: unexpected error.
+            } else {
+                $this->login($username,$password);
+            }
+        }
+        
+
+    }
+
     public function checkSessionLoginPage() {// redirect khoi login.php khi da dang nhap roi
-        if ( $this->sess->checkSession("user_id") == true ) {
+        $this->sess-> init();
+        if ( $this->sess->checkSession("user_id")==true ) {
+
             if ($this->sess->get("privil")=="admin") {
                 redirect("/source_code/admin/admin.php");
             } else {
@@ -48,9 +108,11 @@ class LoginHandler
         }
     }
 
-    public function requireLogin() {//redirect khi chua dang nhap o trang yeu cau dang nhap
+    public function checkLogin() { // false khi chua dang nhap, true neu dang nhap roi.
         if ($this->sess->checkSession("user_id")== false ) {
-            redirect("/source_code/login.php");
+            return false;
+        } else {
+            return true;
         }
     }
 
