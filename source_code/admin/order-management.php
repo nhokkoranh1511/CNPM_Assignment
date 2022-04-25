@@ -5,13 +5,6 @@
 <?php addHeader("Quản lý đơn hàng"); ?>
 
 <div class="container">
-    <h1>
-        Quản lý đơn hàng
-    </h1>
-</div>
-
-
-<div class="container">
     <table class="table">
         <thead>
             <tr>
