@@ -34,10 +34,14 @@ class FoodHandler
 
          // ex $list = get_food_list(0,"name",true) tra ve 1 mảng php bao gồm pizzas
         // được xếp theo thứ tự A-Z
-        if ($select == "all") {
+        if (is_string($select)) {
             return $this-> fooddb ->get_food_list_all($sortField,$isAscending);
         } else {
             return $this-> fooddb ->get_food_list_by_category($select,$sortField,$isAscending);
         }
+    }
+
+    public function get_food_info($id) {
+        return $this->fooddb->select_food_by_id($id);
     }
 }

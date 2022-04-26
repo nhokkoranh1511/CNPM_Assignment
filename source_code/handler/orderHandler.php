@@ -100,7 +100,7 @@ class OrderHandler
     }
 
     public function order_list($select){
-        if ($select == "all") {
+        if (is_string($select)) {
             if ($this->logged_user_privil()=="staff") {
                 $order_list = $this->orderdb->get_order_list_all("id",true);
             } 
@@ -112,7 +112,7 @@ class OrderHandler
             return;
         }
 
-        if ($select != "all") {
+        if (!is_string($select)) {
             if ($this->logged_user_privil()=="staff") {
                 $order_list = $this->orderdb->get_order_list_by_status($select,"id",true);
             } 
