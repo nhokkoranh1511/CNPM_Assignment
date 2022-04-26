@@ -1,7 +1,15 @@
 <?php
     include('partial/partial.php');
     $path = $_SERVER['DOCUMENT_ROOT'];
-    include_once($path . "/macro/includemacro.php");    
+    include_once($path . "/macro/includemacro.php");
+    include_once($path. "/handler/includeHandler.php");
+    
+    if ($loginHandler->checkLogin() == false) {
+        redirect("/index.php");
+    }
+    else { // logged in
+        $id_admin = $userHandler->loggedUser['id'];
+    }
 ?>
 
 <?php addHeader("Quản lý người dùng"); ?>
