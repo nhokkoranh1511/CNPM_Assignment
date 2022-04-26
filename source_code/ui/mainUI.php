@@ -37,28 +37,6 @@ global $userHandler;
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item option">        
-                            <!---- login/signup khi chua dang nhap, xem info khi da dang nap---->
-                            <?php
-                                if ($loginHandler->checkLogin() == false) { 
-                            ?>
-                                <button  type="button" >
-                                    <a href="login.php">Đăng nhập</a>
-                                </button>
-                                <button  type="button" >
-                                    <a href="signup.php">Đăng kí</a>
-                                </button>
-                            <?php
-                                } else {
-                                    $username = $userHandler->loggedUser['username'];
-                                    echo <<<EOL
-                                    <span>Xin chao $username</span>
-                                    <button  type="button" >
-                                    <a href="logout.php">Đăng xuất</a>
-                                    </button>
-                                    EOL; 
-                                }
-                            ?>
-                            <!-----di chuyen cuc này đi chỗ khác cho đẹp----->
                             <div id="mySidenav" class="sidenav">
                                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                                 <h1 class="genre" href="#">Sản Phẩm</h1>
@@ -81,6 +59,29 @@ global $userHandler;
                             <a class="nav-link option-content" href="#!">Cửa Hàng</a>
                         </li>
                     </ul>
+
+                    <!---- login/signup khi chua dang nhap, xem info khi da dang nap---->
+                    <?php
+                                if ($loginHandler->checkLogin() == false) { 
+                            ?>
+                                <button  type="button" >
+                                    <a href="login.php">Đăng nhập</a>
+                                </button>
+                                <button  type="button" >
+                                    <a href="signup.php">Đăng kí</a>
+                                </button>
+                            <?php
+                                } else {
+                                    $username = $userHandler->loggedUser['username'];
+                                    echo <<<EOL
+                                    <span>Xin chao $username</span>
+                                    <button  type="button" >
+                                    <a href="logout.php">Đăng xuất</a>
+                                    </button>
+                                    EOL; 
+                                }
+                            ?>
+                            <!-----di chuyen cuc này đi chỗ khác cho đẹp----->
                     <ul class="navbar-nav d-flex flex-row">
                         <li class="cart-box nav-item">
                             <div class="cart-icon">
@@ -162,10 +163,10 @@ function footer(){
             </div>
         </div>
     </footer>
-    <script src="js/offcanvas.js"></script>
+    <script src="/js/offcanvas.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="js/cart.js"></script>
-    <script src="js/shop_grid.js"></script>
+    <script src="/js/cart.js"></script>
+    <script src="/js/shop_grid.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
     </script>

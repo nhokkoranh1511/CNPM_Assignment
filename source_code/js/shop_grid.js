@@ -18,7 +18,25 @@ let pizza_button = document.getElementById("piza");
 let appetizer_button = document.getElementById("side-food");
 let beverage_button = document.getElementById("drink");
 
-pizza_button.onclick = function() {
+function drinkTime() {
+    if (appetizer_button.classList.contains('active'))
+    {
+        appetizer_button.classList.remove('active');
+    }
+    if (!beverage_button.classList.contains('active'))
+    {
+        beverage_button.classList.add('active');
+    }
+    if (pizza_button.classList.contains('active'))
+    {
+        pizza_button.classList.remove('active');
+    }
+    pizza.style.display = "none";
+    appetizer.style.display = "none";
+    beverage.style.display = "block";
+}
+
+function pizzaTime() {
     if (appetizer_button.classList.contains('active'))
     {
         appetizer_button.classList.remove('active');
@@ -36,7 +54,7 @@ pizza_button.onclick = function() {
     beverage.style.display = "none";
 }
 
-appetizer_button.onclick = function() {
+function appeTime() {
     if (!appetizer_button.classList.contains('active'))
     {
         appetizer_button.classList.add('active');
@@ -54,22 +72,9 @@ appetizer_button.onclick = function() {
     beverage.style.display = "none";
 }
 
-beverage_button.onclick = function() {
-    if (appetizer_button.classList.contains('active'))
-    {
-        appetizer_button.classList.remove('active');
-    }
-    if (!beverage_button.classList.contains('active'))
-    {
-        beverage_button.classList.add('active');
-    }
-    if (pizza_button.classList.contains('active'))
-    {
-        pizza_button.classList.remove('active');
-    }
-    pizza.style.display = "none";
-    appetizer.style.display = "none";
-    beverage.style.display = "block";
-}
+pizza_button.onclick = pizzaTime();
+appetizer_button.onclick = appeTime();
+beverage_button.onclick = drinkTime();
+
 
 

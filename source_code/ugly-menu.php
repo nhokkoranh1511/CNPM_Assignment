@@ -19,6 +19,7 @@
     </head>
     <body>
         <?php navBar(); ?>
+        <section class="container shop_cont bg-white">
             <nav class="navbar shop_navbar navbar-expand-md navbar-light bg-white">
                 <div class="container-fluid p-0"> <a class="navbar-brand shop_navbrand text-uppercase fw-800" href="#">Dành
                         cho bạn</a> <button class="navbar-toggler shop-navbar-toggler" type="button"
@@ -26,8 +27,12 @@
                         aria-label="Toggle navigation"><span class="fas fa-bars butt"></span></button>
                     <div class="collapse navbar-collapse" id="myNav">
                         <div class="navbar-nav shop_navbar_nav ms-auto"> <a class="nav-link shop-nav-link active" href="/ugly-menu.php?category=0"
-                                id="piza" id="piza">Pizza Thơm Lừng</a><a class="nav-link shop-nav-link" href="/ugly-menu.php?category=2" id="side-food" id="side-dish">Món
-                                ăn kèm</a> <a class="nav-link shop-nav-link" href="/ugly-menu.php?category=1" id="drink">Thức Uống</a></div>
+                                id="piza" id="piza">Pizza Thơm Lừng</a>
+                                
+                        <a class="nav-link shop-nav-link" href="/ugly-menu.php?category=2" id="side-food" id="side-dish">Món
+                                ăn kèm</a> 
+                        <a class="nav-link shop-nav-link" href="/ugly-menu.php?category=1" id="drink"
+                        >Thức Uống</a></div>
                     </div>
                 </div>
             </nav>
@@ -79,19 +84,20 @@
 
             //hien thi cac thuc an
             $itemRow = 0;
-            echo   "<section class=\"container shop_cont bg-white\">";
             foreach ($paginatedFoodList as $food) {
                 if ($itemRow == 0) {echo "<div class=\"row\">";}
                 // item block
                 $foodImage = $food['image'];
                 $foodTitle = $food['title'];
+                $foodID = $food['id'];
+                $foodDesc = $food['description'];
                 $price = $food['price'];
                 $active = $food['active'];
                 echo <<<EOL
                 <div
                     
                     class="col-lg-4 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3">
-                    <div data-id="4" class="product"> <img class="pro-pic" src=$foodImage alt="">
+                    <div data-id="$foodID" class="product"> <img class="pro-pic" src=$foodImage alt="">
                         <ul class="d-flex align-items-center justify-content-center list-unstyled icons">
                             <li class="icon"><a href='#img5' class="fas fa-expand-arrows-alt"></a></li>
                             <li class="icon mx-3"><span class="far fa-heart"></span></li>
@@ -103,10 +109,18 @@
                         <span class="fas fa-star"></span> <span class="fas fa-star"></span> <span
                             class="far fa-star"></span> <span class="far fa-star"></span> </div>
                     <div class="price">$price</div>
+                    <!-------THONG TIN CHI TIET------>
                     <a href="#" class="lightbox" id="img5">
-                        <span style="background-image: url($foodImage)"></span>
+                        <span style="background-image: url($foodImage)">
+                        <p>$foodTitle</p>
+                        <img src=$foodImage>
+                        <p> Mô tả: $foodDesc</p>
+                        <p> Giá: $price</p>
+                        <p> Còn hàng: $active</p></span>
+                        
                         <div class="fixed-top cross fas fa-times"></div>
                     </a>
+                    <!-------THONG TIN CHI TIET------>
                 </div>
                 EOL;
                 // item block
@@ -117,6 +131,8 @@
 
             echo "</section>";
             //hien thi cac thuc an
+
+
             //phan trang
             echo "<form>";
             $numberOfPage = number_of_page($foodlist,$item_per_page);
@@ -127,11 +143,26 @@
             if (isset($_GET['category']))
                 echo "<input type=hidden name=\"category\" value=".$_GET['category'].">";
 
-                echo "</form>";
+            echo "</form>";
             //phan trang
         ?>
 
 
         <?php footer();?>
+        <script>
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const cate = urlParams.get('category');
+            if (cate == 0) {
+                pizzaTime();
+            }
+            if (cate == 2) {
+                appeTime();
+            }
+            if (cate == 1) {
+                drinkTime();
+            }
+
+        </script>
     </body>
 </html>
