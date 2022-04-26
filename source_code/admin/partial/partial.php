@@ -41,8 +41,9 @@ function addHeader($name)
                         </ul>
         
                         <div class="col-md-3 text-end">
-                            <button type="button" class="btn btn-outline-dark me-2">Login</button>
-                            <button type="button" class="btn btn-dark">Sign-up</button>
+                            <a class="btn btn-dark" href="/logout.php">
+                                Đăng xuất
+                            </a>
                         </div>
                     </header>
                 </div>

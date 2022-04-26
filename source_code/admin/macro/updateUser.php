@@ -90,6 +90,10 @@
         $id = $_GET['id'];
 
         $user->update_user_by_id($id, "username",   $_POST['username']);
+        $user->update_user_by_id($id, "password",   $_POST['password']);
+        $user->update_user_by_id($id, "full_name",  $_POST['full_name']);
+        $user->update_user_by_id($id, "privil",     $_POST['privil']);
+        $user->update_user_by_id($id, "mail",       $_POST['mail']);
 
         $path = $_SERVER['DOCUMENT_ROOT'];
         redirect("/admin/user-management.php");
