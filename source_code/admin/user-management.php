@@ -52,11 +52,11 @@
                             <td><?php echo $privil;             ?></td>
                             <td><?php echo $email;              ?></td>
                             <td>
-                                <a class="btn btn-danger" href="/admin/macro/deleteUser.php?id=<?php echo $id; ?>">
-                                        Xóa
-                                </a>
                                 <a class="btn btn-secondary" href="/admin/macro/updateUser.php?id=<?php echo $id; ?>">
-                                        Chỉnh sửa
+                                    Chỉnh sửa
+                                </a>
+                                <a class="btn btn-danger" href="/admin/macro/deleteUser.php?id=<?php echo $id; ?>">
+                                    Xóa
                                 </a>
                             </td>
                         </tr>
