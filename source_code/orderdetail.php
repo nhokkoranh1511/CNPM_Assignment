@@ -98,20 +98,15 @@
 
         }
         ?>
-        <h2>
-            Thông tin chung
-        </h2>
+        
         <!----staff---->
         <?php
         if ($userHandler->loggedUser['privil']=="staff" || $userHandler->loggedUser['privil']=="admin" ) {
             echo <<<EOL
+            <h2>
+                Thông tin chung
+            </h2>
             <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col"></th>
-                    <th scope="col">Giá trị</th>
-                </tr>
-                </thead>
                 <tbody>
                 <tr>
                     <th scope="row">ID đơn hàng</th>
@@ -185,8 +180,8 @@
             echo "<input type=\"hidden\" name=\"order_id\" value=$orderID>";
             if ($statusCode == "waiting") {
                 echo <<<EOL
-                <button name="act" value="accepted">Nhận đơn</button>
-                <button name="act" value="rejected">Từ chối</button>
+                <button class="btn btn-success" name="act" value="accepted">Nhận đơn</button>
+                <button class="btn btn-danger" name="act" value="rejected">Từ chối</button>
                 EOL;
                 
             }
@@ -200,13 +195,13 @@
 
             if ($statusCode == "canceled") {
                 echo <<<EOL
-                    <button name="act" value="refunded">Xác nhận đã hoàn tiền</button>
+                    <button class="btn btn-danger" name="act" value="refunded">Xác nhận đã hoàn tiền</button>
                 EOL;
             }
 
             if ($statusCode == "rejected") {
                 echo <<<EOL
-                    <button name="act" value="refunded">Xác nhận đã hoàn tiền</button>
+                    <button class="btn btn-danger" name="act" value="refunded">Xác nhận đã hoàn tiền</button>
                 EOL;
             }
             echo "</form>";
@@ -218,18 +213,42 @@
         <?php
         if ($userHandler->loggedUser['privil']=="customer" ) {
             echo <<<EOL
-            <div>ID đơn hàng: $orderID</div>
-            <div>Trạng thái đơn hàng: $orderStatus</div>
-            <div>Ngày đặt: $orderDate</div>
+            <h2>
+                Thông tin chung
+            </h2>
+
+            <table class="table">
+                <tbody>
+                <tr>
+                    <th scope="row">ID đơn hàng</th>
+                    <td>$orderID</td>
+                </tr>
+                <tr>
+                    <th scope="row">ID đơn hàng</th>
+                    <td>$orderStatus</td>
+                </tr>
+                <tr>
+                    <th scope="row">Ngày đặt</th>
+                    <td>$orderDate</td>
+                </tr>
+                </tbody>
+            </table>
             EOL;
             echo <<<EOL
-            <table id="order">
-            <tr>
-                <th>ID sản phẩm</th>
-                <th>Hình ảnh</th>
-                <th>Tên</th>
-                <th>Số lượng đặt</th>
-            </tr>    
+            <h2>
+                Chi tiết đơn hàng
+            </h2>
+            <table id="order" class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID sản phẩm</th>
+                    <th scope="col">Hình ảnh</th>
+                    <th scope="col">Tên</th>
+                    <th scope="col">Số lượng đặt</th>
+                </tr>
+            </thead>
+            <tbody>
+   
             EOL;
             foreach($orderList as $item):
             $curFood = $foodHandler->get_food_info($item->id);
@@ -240,42 +259,50 @@
             $curFoodQuan = $item->value;
             echo <<<EOL
             <tr>
-                <th>$curFoodID</th>
-                <th><img src=$curFoodImg/ width=100px></th>
-                <th>$curFoodTitle</th>
-                <th>$curFoodQuan</th>
+                <th scope="row">$curFoodID</th>
+                <td><img src=$curFoodImg/ width=100px></th>
+                <td>$curFoodTitle</th>
+                <td>$curFoodQuan</th>
             </tr>
             EOL;
-
             endforeach;
-            echo "</table>";
-            echo "<div>Tổng giá: ".$orderPrice."000đ</div>";
+            echo <<<EOL
+                <tr>
+                    <td colspan="4" class="text-center">
+                        <strong>
+                            Tổng giá: $orderPrice.000đ
+                        </strong>
+                    </td>
+                </tr>
+            EOL;
+
+            echo "</tbody></table>";
             
             echo "<form method=\"post\">";
             echo "<input type=\"hidden\" name=\"order_id\" value=$orderID>";
             if ($statusCode == "waiting") {
                 echo <<<EOL
-                <button name="act" value="canceled">Hủy đơn hàng</button>
+                <button class="btn btn-danger" name="act" value="canceled">Hủy đơn hàng</button>
                 EOL;
                 
             }
             if ($statusCode == "accepted") {
                 echo <<<EOL
-                <button type="button">Chờ đầu bếp nấu</button>
+                <button class="btn btn-secondary" type="button">Chờ đầu bếp nấu</button>
                 EOL;
                 
             }
 
             if ($statusCode == "canceled" || $statusCode == "rejected") {
                 echo <<<EOL
-                    <button type="button">Vui lòng đến quầy thu ngân và đưa đơn hàng này để nhận hoàn tiền</button>
+                    <button class="btn btn-secondary" type="button">Vui lòng đến quầy thu ngân và đưa đơn hàng này để nhận hoàn tiền</button>
                 EOL;
             }
 
             if ($statusCode == "done") {
                 echo <<<EOL
                     <p>Món đã hoàn thành, vui lòng xác nhận khi bạn nhận món</p>
-                    <button name="act" value="served">Nhận món</button>
+                    <button class="btn btn-secondary" name="act" value="served">Nhận món</button>
                 EOL;
             }
 
