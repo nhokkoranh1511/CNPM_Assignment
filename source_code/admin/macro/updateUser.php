@@ -1,32 +1,27 @@
-<?php 
-    $path = $_SERVER['DOCUMENT_ROOT'];
-    include_once($path.'/admin/partial/partial.php');
-    include_once($path . "/macro/includemacro.php");
-    include_once($path. "/handler/includeHandler.php");
-    
-    if ($loginHandler->checkLogin() == false) {
-        redirect("/index.php");
-    }
-    else { // logged in
-        $id_admin = $userHandler->loggedUser['id'];
-    }
+<?php
+$path = $_SERVER['DOCUMENT_ROOT'];
+include_once($path . '/admin/partial/partial.php');
+include_once($path . "/macro/includemacro.php");
+include_once($path . "/admin/macro/checkInput.php");
+include_once($path . "/handler/includeHandler.php");
 
-    $errorUsername      = "";
-    $errorPassword      = "";
-    $errorFull_name     = "";
-    $errorPrivil        = "";
+if ($loginHandler->checkLogin() == false) {
+    redirect("/index.php");
+} else { // logged in
+    $id_admin = $userHandler->loggedUser['id'];
+}
 ?>
 
 <?php
-    $user = new UserDB();
-    $row = $user->select_user_by_id($id_admin);
+$user = new UserDB();
+$row = $user->select_user_by_id($_GET['id']);
 
-    $id             = $row['id'];
-    $full_name      = $row['full_name'];
-    $username       = $row['username'];
-    $password       = $row['password'];
-    $privil         = $row['privil'];
-    $email          = $row['email'];
+$id             = $row['id'];
+$full_name      = $row['full_name'];
+$username       = $row['username'];
+$password       = $row['password'];
+$privil         = $row['privil'];
+$email          = $row['email'];
 ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
@@ -259,6 +254,11 @@
                             Chỉnh sửa
                         </a>
                     </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" >
+                    <button style="width: 100%;" type="button" class="btn btn-outline-dark" onclick="window.location.href='/admin/user-management.php';">Trở lại trang quản lý</button>
                 </td>
             </tr>
         </tbody>

@@ -1,4 +1,5 @@
 <?php
+
 function addHeader($name)
 {
     echo <<<EOL
@@ -23,6 +24,9 @@ function addHeader($name)
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
                 integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
             </script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+            <link href="/css/admin.css" rel="stylesheet">
         
             <title>$name</title>
         </head>
@@ -41,11 +45,18 @@ function addHeader($name)
                         </ul>
         
                         <div class="col-md-3 text-end">
-                            <button type="button" class="btn btn-outline-dark me-2">Login</button>
-                            <button type="button" class="btn btn-dark">Sign-up</button>
+                            <a class="btn btn-dark" href="/logout.php">
+                                Đăng xuất
+                            </a>
                         </div>
                     </header>
                 </div>
+            </div>
+        
+            <div class="container">
+                <h3>
+                    $name
+                </h3>
             </div>
         EOL;
 }
