@@ -62,7 +62,7 @@ if ($loginHandler->checkLogin() == false) {
             <!----INFO---->
             <?php
             if (isset($_GET['info']) || (!isset($_GET['info']) && !isset($_GET['order']))) {
-                echo "<h1>Thông tin nguời dùng</h1>";
+                echo "<h1>Quản lý tài khoản</h1>";
                 if (isset($_POST['email'])) {
                     $result = $userHandler->changeEmail($_POST['email']);
                     if ($result != false) {
@@ -197,6 +197,11 @@ if ($loginHandler->checkLogin() == false) {
                     $page = $_GET['page'];
                 }
                 echo <<<EOL
+                <h1>
+                    Quản lý đơn hàng
+                </h1>
+                <br>
+
                 <div>
                     <button class= "statusButton btn btn-outline-dark" type="button" value = "all">Tất cả</button>
                     <button class= "statusButton btn btn-outline-dark" type="button" value = "waiting">Chờ xác nhận</button>
@@ -207,6 +212,7 @@ if ($loginHandler->checkLogin() == false) {
                     <button class= "statusButton btn btn-outline-dark" type="button" value = "done">Đã hoàn thành</button>
                     <button class= "statusButton btn btn-outline-dark" type="button" value = "served">Đã phục vụ</button>
                 </div>
+                <br>
                 EOL;
                 $orderlist = $orderHandler->order_list($status);
                 if ($orderlist != false && count($orderlist) != 0) {
