@@ -19,7 +19,7 @@
 
         $orderCus = $order['customer_id'];
         $orderDate = $order['date'];
-        $orderPrice = $order['price'];
+        $orderPrice = intval($order['price']);
         $statusCode = $order['status'];
         $orderStatus = parseStatus($statusCode);
         $orderList = json_decode($order['food']);
@@ -41,38 +41,50 @@
     </head>
     <body>
         <?php navBar(); ?>
+        
+
+        <section class="container shop_cont bg-white">
+        <!----content---->
+        <h1>Chi tiết đơn hàng</h1>
+
         <?php
         if (isset($_POST['act'])){
             $result = false;
             if ($_POST['act']=="done") {
                 $result = $orderHandler->done_order($orderID);
                 if ($result != false ){
-                    echo "Xác nhận hoàn thành món";
+                    echo "<div class=\"success\">Xác nhận hoàn thành món</div>";
                 }
             }
             if ($_POST['act']=="rejected") {
                 $result = $orderHandler->reject_order($orderID);
                 if ($result != false ){
-                    echo "Đã từ chối đơn";
+                    echo "<div class=\"success\">Đã từ chối đơn</div>";
+                }
+            }
+            if ($_POST['act']=="canceled") {
+                $result = $orderHandler->cancel_order($orderID);
+                if ($result != false ){
+                    echo "<div class=\"success\">Đã hủy đơn</div>";
                 }
             }
             if ($_POST['act']=="refunded") {
                 $result = $orderHandler->refunded_order($orderID);
                 if ($result != false ){
-                    echo "Đã xác nhận hoàn tiền";
+                    echo "<div class=\"success\">Đã xác nhận hoàn tiền</div>";
                 }
             }
 
             if ($_POST['act']=="accepted") {
                 $result = $orderHandler->accept_order($orderID);
                 if ($result != false ){
-                    echo "Đã nhận đơn hàng";
+                    echo "<div class=\"success\">Đã nhận đơn hàng</div>";
                 }
             }
             if ($_POST['act']=="served") {
                 $result = $orderHandler->served_order($orderID);
                 if ($result != false ){
-                    echo "Đã nhận món";
+                    echo "<div class=\"success\">Đã nhận món</div>";
                 }
             }
 
@@ -83,10 +95,6 @@
 
         }
         ?>
-
-        <section class="container shop_cont bg-white">
-        <!----content---->
-        <h1>Chi tiết đơn hàng</h1>
         <!----staff---->
         <?php
         if ($userHandler->loggedUser['privil']=="staff" || $userHandler->loggedUser['privil']=="admin" ) {
@@ -97,7 +105,7 @@
             <div>Ngày đặt: $orderDate</div>
             EOL;
             echo <<<EOL
-            <table class="order">
+            <table id="order">
             <tr>
                 <th>ID sản phẩm</th>
                 <th>Hình ảnh</th>
@@ -115,7 +123,7 @@
             echo <<<EOL
             <tr>
                 <th>$curFoodID</th>
-                <th><img src=$curFoodImg/></th>
+                <th><img width=100px src=$curFoodImg/></th>
                 <th>$curFoodTitle</th>
                 <th>$curFoodQuan</th>
             </tr>
@@ -123,7 +131,7 @@
 
             endforeach;
             echo "</table>";
-            echo "<div>Tổng giá: $orderPrice</div>";
+            echo "<div>Tổng giá: ".$orderPrice."000đ</div>";
             
             echo "<form method=\"post\">";
             echo "<input type=\"hidden\" name=\"order_id\" value=$orderID>";
@@ -167,7 +175,7 @@
             <div>Ngày đặt: $orderDate</div>
             EOL;
             echo <<<EOL
-            <table class="order">
+            <table id="order">
             <tr>
                 <th>ID sản phẩm</th>
                 <th>Hình ảnh</th>
@@ -185,7 +193,7 @@
             echo <<<EOL
             <tr>
                 <th>$curFoodID</th>
-                <th><img src=$curFoodImg/></th>
+                <th><img src=$curFoodImg/ width=100px></th>
                 <th>$curFoodTitle</th>
                 <th>$curFoodQuan</th>
             </tr>
@@ -193,7 +201,7 @@
 
             endforeach;
             echo "</table>";
-            echo "<div>Tổng giá: $orderPrice</div>";
+            echo "<div>Tổng giá: ".$orderPrice."000đ</div>";
             
             echo "<form method=\"post\">";
             echo "<input type=\"hidden\" name=\"order_id\" value=$orderID>";
@@ -248,9 +256,10 @@
 
 
             #order th {
+            border: 1px solid black;
             padding-top: 12px;
             padding-bottom: 12px;
-            text-align: left;
+            text-align: center;
             color: black;
             }
         </style>

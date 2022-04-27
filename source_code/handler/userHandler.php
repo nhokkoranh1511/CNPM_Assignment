@@ -27,53 +27,56 @@ class UserHandler
 
     public function changePassword($oldPassword,$password,$repassword) {
         if ($oldPassword!= $this->loggedUser['password']) {
-            //UI
+            $this->loginUI->warningBox("Mật khẩu cũ không chính xác");
             return false;
         }
 
         if (!checkValidPassword($password)) {
-            //UI
+            $this->loginUI->warningBox("Mật khẩu mới không hợp lệ");
             return false;
         }
 
         if ($password!=$repassword) {
-            //UI
+            $this->loginUI->warningBox("Mật khẩu nhập lại không khớp");
             return false;
         }
         
         $result = $this->userdb->update_user_by_id( $this->loggedUser['id'],"password",$password);
         if ($result == false) {
-            //UI failed
+            $this->loginUI->warningBox("Có lỗi xảy ra");
             return false;
         }
+        $this->loginUI->successBox("Đổi mật khẩu thành công");
         return true;
     }
 
     public function changeEmail($email) {
         if (!checkValidEmail($email)) {
-            //UI
+            $this->loginUI->warningBox("Email không hợp lệ");
             return false;
         }
         
         $result = $this->userdb->update_user_by_id( $this->loggedUser['id'],"email",$email);
         if ($result == false) {
-            //UI failed
+            $this->loginUI->warningBox("Có lỗi xảy ra");
             return false;
         }
         return true;
+        $this->loginUI->successBox("Đổi Email thành công");
     }
 
     public function changeFullName($full_name) {
         if (!checkValidFullName($full_name)) {
-            //UI
+            $this->loginUI->warningBox("Tên chỉ được chứa kí tự A-Z và khoảng trắng");
             return false;
         }
         
         $result = $this->userdb->update_user_by_id( $this->loggedUser['id'],"full_name",$full_name);
         if ($result == false) {
-            //UI failed
+            $this->loginUI->warningBox("Có lỗi xảy ra");
             return false;
         }
+        $this->loginUI->successBox("Đổi tên thành công");
         return true;
 
     }

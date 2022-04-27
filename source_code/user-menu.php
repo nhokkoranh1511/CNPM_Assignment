@@ -2,7 +2,7 @@
 <?php
     $path = $_SERVER['DOCUMENT_ROOT'];
     include_once($path."/handler/includeHandler.php"); 
-    $item_per_page = 2;
+    $item_per_page = 5;
     if ( $loginHandler -> checkLogin() == false) {
         //UI
         echo "<span>Ban chua dang nhap!</span>";
@@ -17,23 +17,7 @@
         $userEmail = $userHandler->loggedUser['email'];
         $userFullName = $userHandler->loggedUser['full_name'];
 
-        if (isset($_POST['email'])) {
-            $result = $userHandler->changeEmail($_POST['email']);
-            if ($result != false) {
-                $userEmail= $_POST['email'];
-            }
-        }
-
-        if (isset($_POST['fullname'])) {
-            $result = $userHandler->changeFullName($_POST['fullname']);
-            if ($result !=false) {
-                $userFullName= $_POST['fullname'];
-            }
-        }
-
-        if (isset($_POST['oldpassword'])) {
-            $result = $userHandler->changePassword($_POST['oldpassword'],$_POST['newpassword'],$_POST['repassword']);
-        } 
+        
 
     }
 ?>
@@ -49,7 +33,7 @@
         
         <!--Bootstrap a-->
         <?php headerLinkInclude(); ?>
-        <title>page title</title>
+        <title>Tài khoản của tôi</title>
     </head>
     <body>
         <?php navBar(); ?>
@@ -67,8 +51,25 @@
         <!----INFO---->
         <?php
             if (isset($_GET['info'])|| (!isset($_GET['info'])&&!isset($_GET['order']))) {
+                echo "<h1>Thông tin nguời dùng</h1>";
+                if (isset($_POST['email'])) {
+                    $result = $userHandler->changeEmail($_POST['email']);
+                    if ($result != false) {
+                        $userEmail= $_POST['email'];
+                    }
+                }
+        
+                if (isset($_POST['fullname'])) {
+                    $result = $userHandler->changeFullName($_POST['fullname']);
+                    if ($result !=false) {
+                        $userFullName= $_POST['fullname'];
+                    }
+                }
+        
+                if (isset($_POST['oldpassword'])) {
+                    $result = $userHandler->changePassword($_POST['oldpassword'],$_POST['newpassword'],$_POST['repassword']);
+                } 
                 echo <<<EOL
-                <h1>Thông tin nguời dùng</h1>
                 <div>ID người dùng: $userID</div>
                 <div>Tên tài khoản: $username</div>
                 <div>Loại tài khoản: $userPrivil</div>
@@ -176,13 +177,14 @@
                     $orderPrice =  $order['price'];
                     $orderDate =  $order['date'];
                     $orderStatus =  $order['status'];
+                    $orderStatusParse =  parseStatus($orderStatus);
                     echo <<<EOL
                     <tr>
                         <th>$orderID</th>
                         <th>$orderCus</th>
                         <th>$orderPrice</th>
                         <th>$orderDate</th>
-                        <th>$orderStatus</th>
+                        <th>$orderStatusParse</th>
                         <th ><button type="sumbit" name ="order_id" value=$orderID>Xem chi tiết</button></th>
                     </tr>
                     EOL;
@@ -243,9 +245,10 @@
 
 
             #order th {
+            border: 1px solid black;
             padding-top: 12px;
             padding-bottom: 12px;
-            text-align: left;
+            text-align: center;
             color: black;
             }
         </style>

@@ -7,3 +7,10 @@
 .nav-link {
   font-size: large;
 }
+
+.warning {
+  color:red;
+}
+.success {
+  color:green;
+}

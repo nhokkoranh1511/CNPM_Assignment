@@ -21,7 +21,7 @@
     </head>
     <body>
         <?php navBar(); ?>
-
+        <section class="container shop_cont bg-white">
         <form method="post">  
             <div class="container" >   
                 <label>Username : </label>   
@@ -40,6 +40,7 @@
             $loginHandler -> checkSessionLoginPage();
             
         ?>
+        </section>
         <?php footer();?>
         
     </body>

@@ -49,7 +49,7 @@
     }
 
     function checkValidUserName($username) {
-        if(preg_match('/^[a-zA-Z0-9]{5,}$/', $username)) { // for english chars + numbers only, 5 char min
+        if(preg_match('/^[a-zA-Z0-9]{5,20}$/', $username)) { // for english chars + numbers only, 5 char min
             return true;    
         } else {
             return false;
@@ -76,6 +76,32 @@
         return (strlen($password)> 4);
     }
     function parseStatus($statuscode) {
-        return $statuscode;
+        switch ($statuscode) {
+            case "waiting":
+                return "Chờ xác nhận";
+                break;
+            case "accepted":
+                return "Đã xác nhận";
+                break;
+            case "canceled":
+                return "Đã hủy đơn";
+                break;
+            case "rejected":
+                return "Đã từ chối";
+                break;
+            case "refunded":
+                return "Đã hủy đơn";
+                break;
+            case "done":
+                return "Đã hoàn thành món";
+                break;
+            case "served":
+                return "Đã phục vụ";
+                break;
+            default:
+                return $statuscode;
+                break;
+            
+        }
     }
 ?>

@@ -48,14 +48,14 @@ global $userHandler;
                             } else {
                              $username = $userHandler->loggedUser['username'];
                                 echo <<<EOL
-                                  <span>Xin chao </span>
+                                  <span>Xin chào </span>
                                   <a href="user-menu.php">$username</a>
                                  <button  type="button" >
                                  <a href="logout.php">Đăng xuất</a>
                                   </button>
                                 EOL; 
 
-                                if ($userHandler->loggedUser['privil']) {
+                                if ($userHandler->loggedUser['privil']=="admin") {
                                     echo"<a href=\"admin/admin.php\">Đến menu admin</a>";
                                 }
                             }

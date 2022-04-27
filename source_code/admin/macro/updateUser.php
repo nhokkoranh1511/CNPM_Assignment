@@ -6,7 +6,7 @@ include_once($path . "/admin/macro/checkInput.php");
 include_once($path . "/handler/includeHandler.php");
 
 if ($loginHandler->checkLogin() == false) {
-    redirect("/index.php");
+    redirect("//login.php");
 } else { // logged in
     $id_admin = $userHandler->loggedUser['id'];
 }

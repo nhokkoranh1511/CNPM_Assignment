@@ -24,12 +24,12 @@ class LoginHandler
         $result = $this->userdb->select_user_by_name($username);
 
         if ($result == false) {
-            $this->loginUI->warningBox("Wrong username");
+            $this->loginUI->warningBox("Tên đăng nhập hoặc mật khẩu sai");
             return;
         }
 
         if ($result['password'] != $password) {
-            $this->loginUI->warningBox("Wrong password");
+            $this->loginUI->warningBox("Tên đăng nhập hoặc mật khẩu sai");
             return;
         }
 
@@ -44,27 +44,27 @@ class LoginHandler
         if (!checkValidUserName($username)) {
             $valid = false;
             //UI
-            $this->loginUI->warningBox("Invalid Username");
+            $this->loginUI->warningBox("Tên tài khoản phải có 5-20 kí tự và không chứa kí tự đặc biệt");
             echo "<br>";
         }
 
         if ( $this->userdb->select_user_by_name($username)!= false) {
             $valid = false;
             //UI
-            $this->loginUI->warningBox("Username exist");
+            $this->loginUI->warningBox("Tên tài khoản đã tồn tại");
             echo "<br>";
         }
 
         if (!checkValidPassword($password)) {
             $valid = false;
             // UI
-            $this->loginUI->warningBox("Invalid Password");
+            $this->loginUI->warningBox("Mật khẩu phải hơn 4 kí tự");
             echo "<br>";
         }
 
         if ($password!= $repass) {
             $valid = false;
-            $this->loginUI->warningBox("Repassword didnt match");
+            $this->loginUI->warningBox("Mật khẩu không khớp");
             echo "<br>";
             // UI
         }
@@ -72,7 +72,7 @@ class LoginHandler
         if (!checkValidFullName($full_name)) {
             $valid = false;
 
-            $this->loginUI->warningBox("Invalid fullname");
+            $this->loginUI->warningBox("Tên đầy đủ chỉ được chứa kí tự A-Z và khoảng trắng");
             echo "<br>";
             
             // UI
@@ -81,7 +81,7 @@ class LoginHandler
         if (!checkValidEmail($email)) {
             $valid = false;
             // UI
-            $this->loginUI->warningBox("Invalid email");
+            $this->loginUI->warningBox("Email không hợp lệ");
             echo "<br>";
         }
 
