@@ -246,4 +246,4 @@ function paymentHeader(){
     <script src="/js/payment.js"></script>
 <?php
 }
-?>s
+?>
