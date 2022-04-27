@@ -167,7 +167,7 @@
     });
 </script>
 
-<?php addHeader("Chỉnh sửa"); ?>
+<?php addHeader("Tài khoản admin"); ?>
 
 <form class="container">
     <table class="table">
