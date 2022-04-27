@@ -5,4 +5,3 @@
     $loginHandler->logout();
 ?>
 
- 

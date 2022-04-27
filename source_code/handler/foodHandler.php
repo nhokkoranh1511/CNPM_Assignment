@@ -44,4 +44,14 @@ class FoodHandler
     public function get_food_info($id) {
         return $this->fooddb->select_food_by_id($id);
     }
+    
+    public function calculate_total_price($foodcart){
+    $totalPrice = 0;
+    foreach ($foodcart as $value) :
+        $foodID = $value['id'];
+        $foodInfo = $this -> get_food_info($foodID);
+        $totalPrice = $totalPrice + $foodInfo['price']*$value['value'];
+    endforeach;
+    return $totalPrice;
+    }
 }

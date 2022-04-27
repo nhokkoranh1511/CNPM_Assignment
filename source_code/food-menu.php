@@ -26,12 +26,12 @@
                         data-bs-toggle="collapse" data-bs-target="#myNav" aria-controls="myNav" aria-expanded="false"
                         aria-label="Toggle navigation"><span class="fas fa-bars butt"></span></button>
                     <div class="collapse navbar-collapse" id="myNav">
-                        <div class="navbar-nav shop_navbar_nav ms-auto"> <a class="nav-link shop-nav-link active" href="/ugly-menu.php?category=0"
+                        <div class="navbar-nav shop_navbar_nav ms-auto"> <a class="nav-link shop-nav-link active" href="/food-menu.php?category=0"
                                 id="piza" id="piza">Pizza Thơm Lừng</a>
                                 
-                        <a class="nav-link shop-nav-link" href="/ugly-menu.php?category=2" id="side-food" id="side-dish">Món
+                        <a class="nav-link shop-nav-link" href="/food-menu.php?category=2" id="side-food" id="side-dish">Món
                                 ăn kèm</a> 
-                        <a class="nav-link shop-nav-link" href="/ugly-menu.php?category=1" id="drink"
+                        <a class="nav-link shop-nav-link" href="/food-menu.php?category=1" id="drink"
                         >Thức Uống</a></div>
                     </div>
                 </div>

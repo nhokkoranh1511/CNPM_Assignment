@@ -1,5 +1,7 @@
+
 class CartItem{
-    constructor(name, img, price){
+    constructor(name, img, price, id){
+        this.id = id;
         this.name = name
         this.img=img
         this.price = price
@@ -67,7 +69,7 @@ function addItemFunction(e){
     const name = e.target.parentElement.parentElement.parentElement.children[1].textContent
     let price = e.target.parentElement.parentElement.parentElement.children[3].textContent
     price = price.replace("đ", '')
-    const item = new CartItem(name, img, price)
+    const item = new CartItem(name, img, price, id)
     LocalCart.addItemToLocalCart(id, item)
 }
 
@@ -127,3 +129,28 @@ function updateCartUI(){
     }
 }
 document.addEventListener('DOMContentLoaded',()=>{updateCartUI()})
+
+$("#Ipay").click(function(){
+    data = LocalCart.getLocalCartItems();
+    objectSend = new Array();
+    for(const [key, value] of data.entries()){
+        curObject = {id:parseInt(key),value:value.quantity};
+        
+        objectSend.push(curObject);
+    }
+    objectSend = JSON.stringify(objectSend);
+    $("#ipayfoodlist").attr("value",objectSend);
+    $("#ipayform").submit();
+});
+
+$("#Wpay").click(function(){
+    data = LocalCart.getLocalCartItems();
+    objectSend = new Array();
+    for(const [key, value] of data.entries()){
+        curObject = {id:parseInt(key),value:value.quantity};
+        
+        objectSend.push(curObject);
+    }
+    objectSend = JSON.stringify(objectSend);
+    $("#ipayfoodlist").attr("value",objectSend);
+});

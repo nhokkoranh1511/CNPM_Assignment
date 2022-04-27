@@ -101,7 +101,7 @@ class LoginHandler
             if ($this->sess->get("privil")=="admin") {
                 redirect("/admin/admin.php");
             } else {
-                redirect("/ugly-menu.php");
+                redirect("/food-menu.php");
             }
         }
     }
