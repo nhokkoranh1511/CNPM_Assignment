@@ -99,7 +99,7 @@ function navBar()
                         EOL;
 
                     if ($userHandler->loggedUser['privil'] == "admin") {
-                        echo "&nbsp;<a class='btn btn-dark' href=\"admin/admin.php\">Trở lại menu admin</a>";
+                        echo "&nbsp;<a class='btn btn-dark' href=\"admin/admin.php\">Đến menu admin</a>";
                     }
                 }
                 ?>
