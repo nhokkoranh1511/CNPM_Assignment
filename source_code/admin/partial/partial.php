@@ -68,13 +68,11 @@ function addFooter() {
         <div class="container">
             <footer class="py-3 my-4">
                 <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+                    <li class="nav-item"><a href="/admin/admin.php" class="nav-link px-2 link-secondary">Tài khoản</a></li>
+                    <li class="nav-item"><a href="/admin/user-management.php" class="nav-link px-2 link-dark">Quản lý khách hàng</a></li>
+                    <li class="nav-item"><a href="/user-menu.php?order=" class="nav-link px-2 link-dark">Quản lý đơn hàng</a></li>
                 </ul>
-                <p class="text-center text-muted">© 2021 Company, Inc</p>
+                <p class="text-center text-muted">Copyright © Owned By Pizza's 5P in 2022 </p>
             </footer>
         </div>
 
