@@ -203,11 +203,20 @@
       font-size:xx-large;
       margin-left: 20px;
       margin-top: 20px;
-
+        cursor: pointer;
   }
   #appetizer, #beverage {
       display:none;
   }
   .butt {
       color: black;
+  }
+  .lightbox-content {
+      margin: 0 auto;
+      width:fit-content;
+      margin-top: 5%;
+      text-align: center;
+  }
+  .food-pict {
+      max-width: 350px;
   }

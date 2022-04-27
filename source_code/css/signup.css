@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
+.signup_box {
+    font-family: 'Noto Sans JP', sans-serif;
+    box-sizing: border-box;
+    padding: 20px;
+}
+.title_form {
+    margin-bottom: 30px;
+}
+.signup_box label{
+    color: DodgerBlue;
+    font-weight: bold;
+}
+input[type=text], input[type=password], input[type=email] {
+    width: 100%;
+    padding: 40px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: inline-block;
+    border: none;
+    width:100%;
+    resize: vertical;
+    padding:15px;
+    border-radius:15px;
+    border:0;
+    box-shadow:4px 4px 10px rgba(0,0,0,0.2);
+  }
+  
+  input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+    outline: none;
+  }
+  
+  
+  /* Set a style for all buttons */
+  .signup_box button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  .signup_box button:hover {
+    opacity:1;
+  }
+  
+  /* Extra styles for the cancel button */
+  .cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+  }
+  
+  /* Float cancel and signup buttons and add an equal width */
+  .signupbtn {
+    float: left;
+    width: 100%;
+    border-radius:15px;
+    border:0;
+    box-shadow:4px 4px 10px rgba(0,0,0,0.2);
+  }
+  
+  /* Add padding to container elements */
+  /* Clear floats */
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  

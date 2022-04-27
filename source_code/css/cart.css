@@ -76,6 +76,7 @@ margin-top: 35%;
  }
  .cancel{
      text-align: right;
+     cursor: pointer;
  }
  .whole-cart-window{
      position: absolute;
@@ -89,4 +90,25 @@ margin-top: 35%;
  }
  .hide{
     display: none;
+}
+.pay-img {
+    max-width: 100px;
+}
+.cart-data {
+    background-color: #fff !important;
+}
+.don-hang {
+    padding-top: 1em;
+    display:flex;
+    justify-content: center;
+}
+.digit {
+    text-align: center;
+}
+.sum-tab {
+    position:relative
+}
+#total {
+    position:absolute;
+    right: 0;
 }

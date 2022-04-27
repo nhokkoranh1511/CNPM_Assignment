@@ -18,26 +18,34 @@
         <!--Bootstrap a-->
         <?php headerLinkInclude(); ?>
         <title>Menu vjp</title>
+        <link rel="stylesheet" type="text/css" href="css/signup.css" />
     </head>
     <body>
         <?php navBar(); ?>
-        <section class="container shop_cont bg-white">
-        <form method="post">  
+        <section class="container signup_box bg-white">
+        <form method="post" >
+        <div class="container">
+            <h1 class="title_form">Đăng Ký Tài Khoản</h1>
 
-        <div class="container" >   
-            <label>Username : </label>   
-            <input type="text" placeholder="Enter Username" name="username" required>  <br>
-            <label>Password : </label>   
-            <input type="password" placeholder="Enter Password" name="password" required> <br> 
-            <label>Repeat password : </label>   
-            <input type="password" placeholder="Re-enter Password" name="repass" required>  <br>
-            <label>Full name : </label>   
-            <input type="text" placeholder="Enter your full name" name="fullname" required>  <br>
-            <label>Repeat password : </label>   
-            <input type="email" placeholder="Re-enter your email" name="email" required>  <br>
-            <button type="submit">Login</button>   
-        </div>   
-        
+            <label for="username"><b>Tên Đăng Nhập</b></label>
+            <input type="text" placeholder="minhduyngok123" name="username" required>
+
+            <label for="password"><b>Mật Khẩu</b></label>
+            <input type="password" placeholder="***********" name="password" required>
+
+            <label for="repass"><b>Nhập Lại Mật Khẩu</b></label>
+            <input type="password" placeholder="***********" name="repass" required>
+
+            <label for="fullname"><b>Họ Và Tên</b></label>
+            <input type="text" placeholder="Trần Nguyễn Minh Duy" name="fullname" required>
+
+            <label for="email"><b>Địa Chỉ Email</b></label>
+            <input type="email" placeholder="minhduy123@hotmail.com" name="email" required>
+
+            <div class="clearfix">
+            <button type="submit" class="signupbtn">Đăng Ký</button>
+            </div>
+        </div>
         </form>   
         <?php
             if (isset($_POST['username']) && isset($_POST['password'])) {

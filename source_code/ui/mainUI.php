@@ -175,4 +175,75 @@ function footer()
 
 <?php
 }
+function paymentHeader(){
+    global $loginHandler;
+    global $userHandler;
 ?>
+ <nav class="navbar navbar-expand-lg navbar-light mask-custom shadow-0">
+            <div class="container">
+                <button class="navbar-toggler justify-content-start" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                 <!---- login/signup khi chua dang nhap, xem info khi da dang nap---->
+                 <?php
+                            if ($loginHandler->checkLogin() == false) { 
+                            ?>
+                                <button  type="button" >
+                                    <a href="login.php">Đăng nhập</a>
+                                </button>
+                                <button  type="button" >
+                                    <a href="signup.php">Đăng kí</a>
+                                </button>
+                            <?php
+                            } else {
+                             $username = $userHandler->loggedUser['username'];
+                                echo <<<EOL
+                                  <span>Xin chào </span>
+                                  <a href="user-menu.php">$username</a>
+                                 <button  type="button" >
+                                 <a href="logout.php">Đăng xuất</a>
+                                  </button>
+                                EOL; 
+
+                                if ($userHandler->loggedUser['privil']=="admin") {
+                                    echo"<a href=\"admin/admin.php\">Đến menu admin</a>";
+                                }
+                            }
+                            ?>
+                            <!-----di chuyen cuc này đi chỗ khác cho đẹp----->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item option">        
+                            <div id="mySidenav" class="sidenav">
+                                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                                <h1 class="genre" href="#">Sản Phẩm</h1>
+                                <a href="/food-menu.php?category=0">Pizza</a>
+                                <a href="/food-menu.php?category=2">Món Ăn Kèm</a>
+                                <a href="/food-menu.php?category=1">Đồ Uống</a>
+                            </div>
+
+                            <!-- Use any element to open the sidenav -->
+                            <a class="nav-link" onclick="openNav()" href="#">Sản Phẩm</a>
+                        </li>
+                        <li class="nav-item option">
+                            <a class="nav-link option-content" href="#!">Cửa Hàng</a>
+                        </li>
+                    </ul>
+
+                   
+                    <ul class="navbar-nav d-flex flex-row">
+                        <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" href="/food-menu.php">
+                                <div class="nav-link book-love">PIZZA'S 5P</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    </nav>
+    <script src="/js/payment.js"></script>
+<?php
+}
+?>s

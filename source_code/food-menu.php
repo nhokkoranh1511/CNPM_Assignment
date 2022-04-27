@@ -99,7 +99,7 @@
                     class="col-lg-4 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3">
                     <div data-id="$foodID" class="product"> <img class="pro-pic" src=$foodImage alt="">
                         <ul class="d-flex align-items-center justify-content-center list-unstyled icons">
-                            <li class="icon"><a href='#img5' class="fas fa-expand-arrows-alt"></a></li>
+                            <li class="icon"><a href='#$foodID' class="fas fa-expand-arrows-alt"></a></li>
                             <li class="icon mx-3"><span class="far fa-heart"></span></li>
                             <li class="icon butto"><span class="fas fa-shopping-bag"></span></li>
                         </ul>
@@ -110,15 +110,15 @@
                             class="far fa-star"></span> <span class="far fa-star"></span> </div>
                     <div class="price">$price</div>
                     <!-------THONG TIN CHI TIET------>
-                    <a href="#" class="lightbox" id="img5">
-                        <span style="background-image: url($foodImage)">
-                        <p>$foodTitle</p>
-                        <img src=$foodImage>
-                        <p> Mô tả: $foodDesc</p>
-                        <p> Giá: $price</p>
-                        <p> Còn hàng: $active</p></span>
-                        
-                        <div class="fixed-top cross fas fa-times"></div>
+                    <a href="#" class="lightbox" id="$foodID">
+                        <div class="lightbox-content">
+                        <h1 style="color: #fff; margin-bottom: 1em">$foodTitle</h1>
+                        <img src=$foodImage class="food-pict">
+                        <h2 style="color: #fff"> Mô tả: $foodDesc</h2>
+                        <h2 style="color: #fff"> Giá: $price</h2>
+                        <h2 style="color: #fff"> Còn hàng: $active</h2>
+                        <div class="fixed-top cross fas fa-times" style="color: #fff; text-align: left;"></div>
+                        </div>
                     </a>
                     <!-------THONG TIN CHI TIET------>
                 </div>

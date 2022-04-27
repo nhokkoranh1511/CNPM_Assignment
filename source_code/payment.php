@@ -27,17 +27,30 @@
         <title>Thanh toán</title>
     </head>
     <body>
-        <?php navBar(); ?>
-        
+        <?php paymentHeader(); ?>
+        <h1 class="don-hang">ĐƠN HÀNG</h1>
         <!----content---->
         <section class="container shop_cont bg-white">
-            <p>INSERT CART HERE</p>
-            <p>INSERT TOTAL PRICE HERE</p>
+            <table class="table table-hover table-striped table-responsive sum-tab">
+                <thead>
+                    <tr>
+                        <th>Số thứ tự</th>
+                        <th>Sản phẩm</th>
+                        <th>Đơn giá</th>
+                        <th>Số lượng</th>
+                        <th>Số tiền</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-body">
+                </tbody>
+            </table>
+            <h1 id="total"></h1>
+         
 
-            <button  type="button" id="Wpay">
+            <button class ="btn btn-outline-secondary"  type="button" id="Wpay">
                 Thanh toán bằng ví điện tử
             </button>
-            <button  type="button" id="Ipay">
+            <button class ="btn btn-outline-secondary" type="button" id="Ipay">
                 Thanh toán bằng Internet-banking
             </button>
         </section>
@@ -45,10 +58,10 @@
         
         <!----content---->
         <form id = "ipayform"style="display:none" method="post" action="ibankingservice.php">
-        <input id = "ipayfoodlist" type="hidden" name="foodlist" value="">
+        <input   id = "ipayfoodlist" type="hidden" name="foodlist" value="">
         </form>
         <form id = "wpayform"style="display:none" method="post" action="ewalletservice.php">
-        <input id = "wpayfoodlist" type="hidden" name="foodlist" value="">
+        <input  id = "wpayfoodlist" type="hidden" name="foodlist" value="">
         </form>
         <?php footer();?>
 
