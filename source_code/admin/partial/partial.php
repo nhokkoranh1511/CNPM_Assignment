@@ -41,7 +41,6 @@ function addHeader($name)
                         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                             <li><a href="/admin/admin.php" class="nav-link px-2 link-secondary">Tài khoản</a></li>
                             <li><a href="/admin/user-management.php" class="nav-link px-2 link-dark">Quản lý khách hàng</a></li>
-                            <li><a href="/user-menu.php?order=" class="nav-link px-2 link-dark">Quản lý đơn hàng</a></li>
                         </ul>
         
                         <div class="col-md-3 text-end">
@@ -70,7 +69,6 @@ function addFooter() {
                 <ul class="nav justify-content-center border-bottom pb-3 mb-3">
                     <li class="nav-item"><a href="/admin/admin.php" class="nav-link px-2 link-secondary">Tài khoản</a></li>
                     <li class="nav-item"><a href="/admin/user-management.php" class="nav-link px-2 link-dark">Quản lý khách hàng</a></li>
-                    <li class="nav-item"><a href="/user-menu.php?order=" class="nav-link px-2 link-dark">Quản lý đơn hàng</a></li>
                 </ul>
                 <p class="text-center text-muted">Copyright © Owned By Pizza's 5P in 2022 </p>
             </footer>
