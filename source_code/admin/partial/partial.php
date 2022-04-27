@@ -54,9 +54,9 @@ function addHeader($name)
             </div>
         
             <div class="container">
-                <h3>
+                <h1>
                     $name
-                </h3>
+                </h1>
             </div>
         EOL;
 }
