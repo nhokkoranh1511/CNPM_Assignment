@@ -36,7 +36,7 @@ function addHeader($name)
         
                         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                             <li><a href="admin.php" class="nav-link px-2 link-secondary">Tài khoản</a></li>
-                            <li><a href="user-management.php" class="nav-link px-2 link-dark">Quản lý khách hàng</a></li>
+                            <li><a href="/user-menu.php?order=" class="nav-link px-2 link-dark">Quản lý khách hàng</a></li>
                             <li><a href="order-management.php" class="nav-link px-2 link-dark">Quản lý đơn hàng</a></li>
                         </ul>
         
