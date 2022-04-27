@@ -133,9 +133,10 @@
         <!----INFO---->
 
         <?php 
+        $status = "all";
+        $page = 0;
+        
          if (isset($_GET['order'])&&!isset($_GET['info'])) {
-            $status = "all";
-            $page = 0;
             
             if (isset($_GET['status'])&& isset($_GET['page'])) {
                 $status = $_GET['status'];
@@ -174,7 +175,7 @@
                     $orderID = $order['id'];
                     $orderDetail = $order['food'];
                     $orderCus =  $order['customer_id'];
-                    $orderPrice =  $order['price'];
+                    $orderPrice =  intval($order['price']);
                     $orderDate =  $order['date'];
                     $orderStatus =  $order['status'];
                     $orderStatusParse =  parseStatus($orderStatus);
@@ -182,7 +183,7 @@
                     <tr>
                         <th>$orderID</th>
                         <th>$orderCus</th>
-                        <th>$orderPrice</th>
+                        <th>$orderPrice\000000đ</th>
                         <th>$orderDate</th>
                         <th>$orderStatusParse</th>
                         <th ><button type="sumbit" name ="order_id" value=$orderID>Xem chi tiết</button></th>
