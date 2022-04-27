@@ -46,7 +46,7 @@
         
 
         <section class="container shop_cont bg-white">
-        <button><a href="/user-menu.php?order="><< Danh sách đơn hàng"</a></button>
+        <a class="btn btn-secondary" href="/user-menu.php?order="><< Danh sách đơn hàng</a><br><br>
         <!----content---->
         <h1>Chi tiết đơn hàng</h1>
 
@@ -98,23 +98,59 @@
 
         }
         ?>
+        <h2>
+            Thông tin chung
+        </h2>
         <!----staff---->
         <?php
         if ($userHandler->loggedUser['privil']=="staff" || $userHandler->loggedUser['privil']=="admin" ) {
             echo <<<EOL
-            <div>ID đơn hàng: $orderID</div>
-            <div>ID khách hàng: $orderCus</div>
-            <div>Trạng thái đơn hàng: $orderStatus</div>
-            <div>Ngày đặt: $orderDate</div>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Giá trị</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">ID đơn hàng</th>
+                    <td>$orderID</td>
+                </tr>
+                <tr>
+                    <th scope="row">ID khách hàng</th>
+                    <td>$orderCus</td>
+                </tr>
+                <tr>
+                    <th scope="row">Trạng thái đơn hàng</th>
+                    <td>$orderStatus</td>
+                </tr>
+                <tr>
+                    <th scope="row">Ngày đặt</th>
+                    <td>$orderDate</td>
+                </tr>
+                </tbody>
+            </table>
+
             EOL;
+
+            
             echo <<<EOL
-            <table id="order">
-            <tr>
-                <th>ID sản phẩm</th>
-                <th>Hình ảnh</th>
-                <th>Tên</th>
-                <th>Số lượng đặt</th>
-            </tr>    
+
+            <h2>
+                Chi tiết đơn hàng
+            </h2>
+
+            <table id="order" class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID sản phẩm</th>
+                    <th scope="col">Hình ảnh</th>
+                    <th scope="col">Tên</th>
+                    <th scope="col">Số lượng đặt</th>
+                </tr>
+            </thead>
+            <tbody>
             EOL;
             foreach($orderList as $item):
             $curFood = $foodHandler->get_food_info($item->id);
@@ -125,16 +161,25 @@
             $curFoodQuan = $item->value;
             echo <<<EOL
             <tr>
-                <th>$curFoodID</th>
-                <th><img width=100px src=$curFoodImg/></th>
-                <th>$curFoodTitle</th>
-                <th>$curFoodQuan</th>
+                <th scope="row">$curFoodID</th>
+                <td><img width=100px src=$curFoodImg/></th>
+                <td>$curFoodTitle</th>
+                <td>$curFoodQuan</th>
             </tr>
             EOL;
-
             endforeach;
-            echo "</table>";
-            echo "<div>Tổng giá: ".$orderPrice."000đ</div>";
+
+            echo <<<EOL
+                <tr>
+                    <td colspan="4" class="text-center">
+                        <strong>
+                            Tổng giá: $orderPrice.000đ
+                        </strong>
+                    </td>
+                </tr>
+            EOL;
+
+            echo "</tbody></table>";
             
             echo "<form method=\"post\">";
             echo "<input type=\"hidden\" name=\"order_id\" value=$orderID>";
@@ -148,7 +193,7 @@
 
             if ($statusCode == "accepted") {
                 echo <<<EOL
-                <button name="act" value="done">Xong món</button>
+                <button class="btn btn-danger" name="act" value="done">Xong món</button>
                 EOL;
                 
             }
@@ -246,24 +291,4 @@
         
         <?php footer();?>
     </body>
-    <style>
-            #order {
-            border-collapse: collapse;
-            width: 100%;
-            }
-
-            #order td, #customers th {
-            border: 1px solid black;
-            padding: 8px;
-            }
-
-
-            #order th {
-            border: 1px solid black;
-            padding-top: 12px;
-            padding-bottom: 12px;
-            text-align: center;
-            color: black;
-            }
-        </style>
 </html>
