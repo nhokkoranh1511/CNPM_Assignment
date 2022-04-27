@@ -227,6 +227,8 @@ if ($loginHandler->checkLogin() == false) {
                             <th scope="col">Xem chi tiết</th>
                         </tr>
                         </thead>
+                        <tbody>
+
                 EOL;
                     foreach ($paginatedorderlist as $order) :
                         $orderID = $order['id'];
@@ -238,7 +240,6 @@ if ($loginHandler->checkLogin() == false) {
                         $orderStatusParse =  parseStatus($orderStatus);
                         echo <<<EOL
 
-                    <tbody>
                     <tr>
                         <th scope="row">$orderID</th>
                         <td>$orderCus</td>
@@ -247,11 +248,11 @@ if ($loginHandler->checkLogin() == false) {
                         <td>$orderStatusParse</td>
                         <td><button class="btn btn-danger" type="sumbit" name ="order_id" value=$orderID>Xem chi tiết</button></td>
                     </tr>
-                    </tbody>
+                    
 
                     EOL;
                     endforeach;
-                    echo "</table></form>";
+                    echo "</tbody></table></form>";
                     //TABLE
 
                     for ($i = 0; $i < $numberOfPage; $i++) {
