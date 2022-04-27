@@ -34,35 +34,9 @@ global $userHandler;
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item option">        
-                            <div id="mySidenav" class="sidenav">
-                                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                                <h1 class="genre" href="#">Sản Phẩm</h1>
-                                <a href="#">Combo</a>
-                                <a href="#">Best-seller</a>
-                                <a href="#">Signature</a>
-                                <a href="#">New</a>
-                                <a href="#pizza">Pizza</a>
-                                <a href="#appetizer">Món Ăn Kèm</a>
-                                <a href="#beverage">Đồ Uống</a>
-                            </div>
-
-                            <!-- Use any element to open the sidenav -->
-                            <a class="nav-link" onclick="openNav()" href="#">Sản Phẩm</a>
-                        </li>
-                        <li class="nav-item option">
-                            <a class="nav-link option-content" href="#!">Việc Làm</a>
-                        </li>
-                        <li class="nav-item option">
-                            <a class="nav-link option-content" href="#!">Cửa Hàng</a>
-                        </li>
-                    </ul>
-
-                    <!---- login/signup khi chua dang nhap, xem info khi da dang nap---->
-                    <?php
-                                if ($loginHandler->checkLogin() == false) { 
+                 <!---- login/signup khi chua dang nhap, xem info khi da dang nap---->
+                 <?php
+                            if ($loginHandler->checkLogin() == false) { 
                             ?>
                                 <button  type="button" >
                                     <a href="login.php">Đăng nhập</a>
@@ -71,17 +45,42 @@ global $userHandler;
                                     <a href="signup.php">Đăng kí</a>
                                 </button>
                             <?php
-                                } else {
-                                    $username = $userHandler->loggedUser['username'];
-                                    echo <<<EOL
-                                    <span>Xin chao $username</span>
-                                    <button  type="button" >
-                                    <a href="logout.php">Đăng xuất</a>
-                                    </button>
-                                    EOL; 
+                            } else {
+                             $username = $userHandler->loggedUser['username'];
+                                echo <<<EOL
+                                  <span>Xin chao </span>
+                                  <a href="user-menu.php">$username</a>
+                                 <button  type="button" >
+                                 <a href="logout.php">Đăng xuất</a>
+                                  </button>
+                                EOL; 
+
+                                if ($userHandler->loggedUser['privil']) {
+                                    echo"<a href=\"admin/admin.php\">Đến menu admin</a>";
                                 }
+                            }
                             ?>
                             <!-----di chuyen cuc này đi chỗ khác cho đẹp----->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item option">        
+                            <div id="mySidenav" class="sidenav">
+                                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                                <h1 class="genre" href="#">Sản Phẩm</h1>
+                                <a href="/food-menu.php?category=0">Pizza</a>
+                                <a href="/food-menu.php?category=2">Món Ăn Kèm</a>
+                                <a href="/food-menu.php?category=1">Đồ Uống</a>
+                            </div>
+
+                            <!-- Use any element to open the sidenav -->
+                            <a class="nav-link" onclick="openNav()" href="#">Sản Phẩm</a>
+                        </li>
+                        <li class="nav-item option">
+                            <a class="nav-link option-content" href="#!">Cửa Hàng</a>
+                        </li>
+                    </ul>
+
+                   
                     <ul class="navbar-nav d-flex flex-row">
                         <li class="cart-box nav-item">
                             <div class="cart-icon">
@@ -92,12 +91,11 @@ global $userHandler;
                                 <div class="cart-wrapper">
                                 </div>
                                 <div class="subtotal">Tổng Cộng: 0đ</div>
-                                <div class="checkout">Thanh Toán</div>
-                                <div class="view-cart">Xem Giỏ Hàng</div>
+                                <div class="checkout"><a href="payment.php">Thanh Toán</a></div>
                             </div>
                         </li>
                         <li class="nav-item me-3 me-lg-0">
-                            <a class="nav-link" href="/ugly-menu.php">
+                            <a class="nav-link" href="/food-menu.php">
                                 <div class="nav-link book-love">PIZZA'S 5P</div>
                             </a>
                         </li>
@@ -167,6 +165,7 @@ function footer(){
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="/js/cart.js"></script>
     <script src="/js/shop_grid.js"></script>
+    <script src="/js/user_menu.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
     </script>

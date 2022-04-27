@@ -75,4 +75,7 @@
     function checkValidPassword($password) {
         return (strlen($password)> 4);
     }
+    function parseStatus($statuscode) {
+        return $statuscode;
+    }
 ?>
