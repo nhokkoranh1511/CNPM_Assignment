@@ -47,6 +47,9 @@
         <form id = "ipayform"style="display:none" method="post" action="ibankingservice.php">
         <input id = "ipayfoodlist" type="hidden" name="foodlist" value="">
         </form>
+        <form id = "wpayform"style="display:none" method="post" action="ewalletservice.php">
+        <input id = "wpayfoodlist" type="hidden" name="foodlist" value="">
+        </form>
         <?php footer();?>
 
         

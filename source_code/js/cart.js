@@ -143,6 +143,7 @@ $("#Ipay").click(function(){
     $("#ipayform").submit();
 });
 
+
 $("#Wpay").click(function(){
     data = LocalCart.getLocalCartItems();
     objectSend = new Array();
@@ -152,5 +153,6 @@ $("#Wpay").click(function(){
         objectSend.push(curObject);
     }
     objectSend = JSON.stringify(objectSend);
-    $("#ipayfoodlist").attr("value",objectSend);
+    $("#wpayfoodlist").attr("value",objectSend);
+    $("#wpayform").submit();
 });
