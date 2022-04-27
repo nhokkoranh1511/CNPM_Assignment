@@ -23,6 +23,8 @@
         $statusCode = $order['status'];
         $orderStatus = parseStatus($statusCode);
         $orderList = json_decode($order['food']);
+    } else {
+        redirect("login.php");
     }
 ?>
 <!DOCTYPE html>
@@ -44,6 +46,7 @@
         
 
         <section class="container shop_cont bg-white">
+        <button><a href="/user-menu.php?order="><< Danh sách đơn hàng"</a></button>
         <!----content---->
         <h1>Chi tiết đơn hàng</h1>
 
