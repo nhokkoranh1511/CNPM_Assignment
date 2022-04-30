@@ -17,7 +17,7 @@
         
         <!--Bootstrap a-->
         <?php headerLinkInclude(); ?>
-        <title>Menu vjp</title>
+        <title>Đăng kí - Pizza 5P</title>
         <link rel="stylesheet" type="text/css" href="css/signup.css" />
     </head>
     <body>
@@ -28,7 +28,7 @@
             <h1 class="title_form">Đăng Ký Tài Khoản</h1>
 
             <label for="username"><b>Tên Đăng Nhập</b></label>
-            <input type="text" placeholder="minhduyngok123" name="username" required>
+            <input type="text" placeholder="Nhập tên tài khoản" name="username" required>
 
             <label for="password"><b>Mật Khẩu</b></label>
             <input type="password" placeholder="***********" name="password" required>
@@ -37,10 +37,10 @@
             <input type="password" placeholder="***********" name="repass" required>
 
             <label for="fullname"><b>Họ Và Tên</b></label>
-            <input type="text" placeholder="Trần Nguyễn Minh Duy" name="fullname" required>
+            <input type="text" placeholder="Nhập họ tên của bạn" name="fullname" required>
 
             <label for="email"><b>Địa Chỉ Email</b></label>
-            <input type="email" placeholder="minhduy123@hotmail.com" name="email" required>
+            <input type="email" placeholder="Nhập email của bạn" name="email" required>
 
             <div class="clearfix">
             <button type="submit" class="signupbtn">Đăng Ký</button>

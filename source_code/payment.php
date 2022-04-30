@@ -47,7 +47,7 @@
             <h1 id="total"></h1>
          
 
-            <button class ="btn btn-outline-secondary"  type="button" id="Wpay">
+            <button class ="btn btn-secondary"  type="button" id="Wpay">
                 Thanh toán bằng ví điện tử
             </button>
             <button class ="btn btn-outline-secondary" type="button" id="Ipay">
@@ -63,11 +63,14 @@
         <form id = "wpayform"style="display:none" method="post" action="ewalletservice.php">
         <input  id = "wpayfoodlist" type="hidden" name="foodlist" value="">
         </form>
+        
         <?php footer();?>
 
         
+        <script src="/js/payment.js"></script>
+        <script>updateCartUI();</script>
     </body>
-
+    
     <style>
         .cancel {
             display:none;
