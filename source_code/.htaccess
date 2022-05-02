@@ -1,0 +1,6 @@
+RewriteEngine On
+    RewriteBase /
+	RewriteRule ^$ "food-menu.php"
+    RewriteRule ^/$ "food-menu.php"
+    RewriteRule ^index.php$" "food-menu.php"
+	RewriteRule ^#$ "food-menu.php"
