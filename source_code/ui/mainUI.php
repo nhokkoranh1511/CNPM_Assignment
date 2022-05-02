@@ -35,15 +35,15 @@ function navBar()
 ?>
     <nav class="navbar navbar-expand-lg navbar-light mask-custom shadow-0">
         <div class="container">
-            <button class="navbar-toggler justify-content-start" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+             <button class="navbar-toggler justify-content-start" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-            </button>
+             </button>
 
             <!-----di chuyen cuc này đi chỗ khác cho đẹp----->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item option">
-                        <a class="nav-link" href="/food-menu.php"><strong>Trang chủ</strong></a>
+                        <a class="nav-link" href="/food-menu.php" style="text-align:center;"><strong>Trang chủ</strong></a>
                     </li>
                     <li class="nav-item option">
                         <div id="mySidenav" class="sidenav">
@@ -55,7 +55,7 @@ function navBar()
                         </div>
 
                         <!-- Use any element to open the sidenav -->
-                        <a class="nav-link" onclick="openNav()" href="#">Sản Phẩm</a>
+                        <a class="nav-link" onclick="openNav()" href="#" style="text-align:center;">Sản Phẩm</a>
                     </li>
                 </ul>
 
@@ -70,18 +70,19 @@ function navBar()
                             <div class="cart-wrapper">
                             </div>
                             <div class="subtotal">Tổng Cộng: 0đ</div>
-                            <div class="checkout"><a href="payment.php">Thanh Toán</a></div>
+                            <div class="checkout"><a href="payment.php" style="text-decoration:none; color: white">Thanh Toán</a></div>
                         </div>
                     </li>
-                    <li class="nav-item me-3 me-lg-0">
+                </ul>
+                <ul class="navbar-nav d-flex flex-row">
+                    <li class="nav-item col-md-12" style="margin-left:50%; transform: translateX(-50%);">
                         <a class="nav-link" href="/food-menu.php">
-                            <div class="nav-link book-love">PIZZA'S 5P</div>
+                            <div class="nav-link book-love" style="text-align:center;">PIZZA'S 5P</div>
                         </a>
                     </li>
                 </ul>
-
                 <!---- login/signup khi chua dang nhap, xem info khi da dang nap---->
-                <ul class="navbar-nav d-flex flex-row">
+                <ul class="navbar-nav d-flex flex-row" id="login-fo">
                 <li class="nav-item me-3 me-lg-0">
                 <?php
                 if ($loginHandler->checkLogin() == false) {
