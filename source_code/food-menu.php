@@ -15,7 +15,7 @@
         
         <!--Bootstrap a-->
         <?php headerLinkInclude(); ?>
-        <title>Menu vjp</title>
+        <title>Thực đơn - Pizza 5P</title>
     </head>
     <body>
         <?php navBar(); ?>
@@ -129,22 +129,25 @@
             }
             if ($itemRow!=0) {echo "</div>";}
 
+             //phan trang
+             echo "<form>";
+             $numberOfPage = number_of_page($foodlist,$item_per_page);
+             for ($i = 0;$i< $numberOfPage;$i++) {
+                 $ii = $i+1;
+                 echo "<button style =\"margin-right:3px\"class=\"btn btn-secondary\" name=\"page\" type=\"submit\" value = \"$i\">$ii</button>"; 
+             }
+ 
+             if (isset($_GET['category']))
+                 echo "<input type=hidden name=\"category\" value=".$_GET['category'].">";
+ 
+             echo "</form>";
+             //phan trang
+
             echo "</section>";
             //hien thi cac thuc an
 
 
-            //phan trang
-            echo "<form>";
-            $numberOfPage = number_of_page($foodlist,$item_per_page);
-            for ($i = 0;$i< $numberOfPage;$i++) {
-                echo "<button name=\"page\" type=\"submit\" value = \"$i\">$i</button>"; 
-            }
-
-            if (isset($_GET['category']))
-                echo "<input type=hidden name=\"category\" value=".$_GET['category'].">";
-
-            echo "</form>";
-            //phan trang
+           
         ?>
 
 

@@ -10,29 +10,166 @@
     else { 
         $userID = $userHandler->loggedUser['id'];
     }
+
+    if (isset($_POST['foodlist'])) {
+        $foodlistString = $_POST['foodlist'];
+        $foodlist= json_decode($foodlistString,true); 
+        $totalPrice = $foodHandler->calculate_total_price($foodlist);
+        if ($totalPrice==0) {redirect("login.php");}
+    } else {
+        redirect("login.php");
+    }       
 ?>
-<?php
-if (isset($_POST['foodlist'])) {
-    $foodlistString = $_POST['foodlist'];
-    $foodlist= json_decode($foodlistString,true); 
-    $totalPrice = $foodHandler->calculate_total_price($foodlist);
-    if ($totalPrice==0) {redirect("login.php");}
-    echo "<h1>THANH TOÁN BẰNG DỊCH VỤ VÍ ĐIỆN TỬ</h1>";
 
-    echo "Thanh toán cho hóa đơn: ".$totalPrice."000đ<br>";
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    echo <<<EOL
-    <form method="post" action="paymentservice/fail.php">
-        <button  type="submit">Thanh toán thất bại</button>
-    </form>
-    <form method="post" action="paymentservice/success.php">
-        <input type="hidden" name="foodlist" value=$foodlistString>
-        <button  type="submit">Thanh toán thành công</button>
-    </form>
-    
-    EOL;
-} else {
-    redirect("login.php");
-}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-?>
+    <title>Thanh toán bằng ví điện tử</title>
+
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #26004d;
+            padding: 30px 10px
+        }
+
+        .card {
+            max-width: 500px;
+            margin: auto;
+            color: black;
+            border-radius: 20 px
+        }
+
+        p {
+            margin: 0px
+        }
+
+        .container .h8 {
+            font-size: 30px;
+            font-weight: 800;
+            text-align: center
+        }
+
+        .btn.btn-primary {
+            width: 100%;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+            background-image: linear-gradient(to right, #ff4dd2 0%, #ff66ff 51%, #ffb3ff 100%);
+            border: none;
+            transition: 0.5s;
+            background-size: 200% auto
+        }
+
+        .btn.btn.btn-primary:hover {
+            background-position: right center;
+            color: #fff;
+            text-decoration: none
+        }
+
+        .btn.btn-primary:hover .fas.fa-arrow-right {
+            transform: translate(15px);
+            transition: transform 0.2s ease-in
+        }
+
+        .form-control {
+            color: black;
+            background-color: #ffe6f9;
+            border: 2px solid transparent;
+            height: 60px;
+            padding-left: 20px;
+            vertical-align: middle
+        }
+
+        .form-control:focus {
+            color: black;
+            background-color: white;
+            border: 2px solid black;
+            box-shadow: none
+        }
+
+        .text {
+            font-size: 14px;
+            font-weight: 600
+        }
+
+        ::placeholder {
+            font-size: 14px;
+            font-weight: 600
+        }
+    </style>
+    </head>
+
+
+<body>
+<div class="container p-0">
+        <p class="h8 py-3" style = "color:white">Thanh toán bằng ví điện tử</p>
+        <p class="h8 py-3" style = "color:white">Số tiền thanh toán: <?php echo $totalPrice."000đ" ?></p>
+        
+        <div class="row gx-3">
+            <div class="col-12">
+                <div class="d-flex flex-column">
+                    <p class="text mb-1" style = "color:white">Số điện thoại </p> <input class="form-control mb-3" type="text" placeholder="Name" >
+                </div>
+            </div>
+        </div>
+        <div class="row gx-3">
+            <div class="col-12">
+                <div class="d-flex flex-column">
+                    <p class="text mb-1" style = "color:white">Mật khẩu</p> <input class="form-control mb-3" type="password" placeholder="Nhập mật khẩu ví điện tử">
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="row gx-3">
+            <?php
+
+
+                    echo <<<EOL
+                    <div class="col-6"  >
+                    <form method="post" action="paymentservice/fail.php"  >
+                        
+                           <button class="btn btn-primary" type = "submit" >Thanh toán (thất bại)</button>
+                           
+                    </form>
+                    </div>
+                    <div class="col-6"  >
+                    <form method="post" action="paymentservice/success.php"  >
+                        
+                           <button class="btn btn-primary" type = "submit" >Thanh toán (thành công)</button>
+                           <input type="hidden" name="foodlist" value=$foodlistString>
+                    </form>
+                    </div>
+                    
+                    EOL;
+                
+
+            ?>
+        </div>
+            
+       
+</div>
+</body>
+
+</html>

@@ -254,7 +254,7 @@
                     <select class="form-select" aria-label="Default select example" id="privil">
                         <option selected>admin</option>
                         <option value="staff">staff</option>
-                        <option value="user">user</option>
+                        <option value="customer">customer</option>
                     </select>
                 </td>
                 <td>

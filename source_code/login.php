@@ -17,7 +17,7 @@
         
         <!--Bootstrap a-->
         <?php headerLinkInclude(); ?>
-        <title>Menu vjp</title>
+        <title>Đăng nhập - Pizza 5P</title>
         <link rel="stylesheet" type="text/css" href="css/login.css" />
     </head>
     <body>
@@ -28,7 +28,7 @@
             <h1 class="title_form">Đăng Nhập Tài Khoản</h1>
 
             <label for="username"><b>Tên Đăng Nhập</b></label>
-            <input type="text" placeholder="minhduyngok123" name="username" required>
+            <input type="text" placeholder="Nhập tên tài khoản" name="username" required>
 
             <label for="password"><b>Mật Khẩu</b></label>
             <input type="password" placeholder="***********" name="password" required>
