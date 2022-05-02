@@ -15,7 +15,7 @@ h2{
 .cart-wrapper{
     overflow-y: auto;
     max-height: 350px;
-    width:24vw;
+    width:100%;
 }
 .subtotal{
     text-align: right;
@@ -37,7 +37,7 @@ h2{
     color: brown;
 }
 .cart-icon{
-    text-align: right;
+    text-align: center;
     cursor: pointer;
 }
 
@@ -79,14 +79,15 @@ margin-top: 35%;
      cursor: pointer;
  }
  .whole-cart-window{
-     position: absolute;
+     position: absolute; 
      top: 4em;
-     right: 0;
-     border: solid lightgray 1px;
-     border-top:none;
+     margin-left: -60%;
+     border: solid lightgray  1px;
+     border-top:none; 
      background-color: #fff;
      margin-right:2%;
      z-index: 100;
+     width: 300px;
  }
  .hide{
     display: none;
@@ -112,3 +113,15 @@ margin-top: 35%;
     position:absolute;
     right: 0;
 }
+@media screen and (max-width: 992px) {
+   #login-fo {
+     margin-left: 20%; 
+     padding: 20px;
+   }    
+}
+@media screen and (max-width: 478x) {
+    #login-fo {
+      margin-left: 0;
+      padding: 20px;
+    }    
+ }

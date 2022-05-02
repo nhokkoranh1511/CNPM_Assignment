@@ -96,7 +96,7 @@
                 echo <<<EOL
                 <div
                     
-                    class="col-lg-4 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3">
+                    class="col-lg-4 col-md-12 d-flex flex-column align-items-center justify-content-center product-item my-3">
                     <div data-id="$foodID" class="product"> <img class="pro-pic" src=$foodImage alt="">
                         <ul class="d-flex align-items-center justify-content-center list-unstyled icons">
                             <li class="icon"><a href='#$foodID' class="fas fa-expand-arrows-alt"></a></li>
