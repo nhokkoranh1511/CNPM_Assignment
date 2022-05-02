@@ -56,22 +56,16 @@ class LocalCart{
 const cartIcon = document.querySelector('.fa-cart-arrow-down')
 const wholeCartWindow = document.querySelector('.whole-cart-window')
 wholeCartWindow.inWindow = 0
-const addToCartBtns = document.querySelectorAll('.butto')
-addToCartBtns.forEach( (btn)=>{
-    btn.addEventListener('click', addItemFunction)
-    console.log(btn);
-}  )
-
-function addItemFunction(e){
-    const id = e.target.parentElement.parentElement.getAttribute("data-id")
-    const img = e.target.parentElement.parentElement.children[0].src;
+$(".butto").click(function(){
+    const id = this.parentElement.parentElement.getAttribute("data-id")
+    const img = this.parentElement.parentElement.children[0].src;
     console.log(img)
-    const name = e.target.parentElement.parentElement.parentElement.children[1].textContent
-    let price = e.target.parentElement.parentElement.parentElement.children[3].textContent
+    const name = this.parentElement.parentElement.parentElement.children[1].textContent
+    let price = this.parentElement.parentElement.parentElement.children[3].textContent
     price = price.replace("đ", '')
     const item = new CartItem(name, img, price, id)
     LocalCart.addItemToLocalCart(id, item)
-}
+})
 
 
 cartIcon.addEventListener('click', ()=>{
