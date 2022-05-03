@@ -190,12 +190,47 @@ if ($loginHandler->checkLogin() == false) {
             $status = "all";
             $page = 0;
 
+            
             if (isset($_GET['order']) && !isset($_GET['info'])) {
 
                 if (isset($_GET['status']) && isset($_GET['page'])) {
                     $status = $_GET['status'];
                     $page = $_GET['page'];
                 }
+                $array1="";
+            $array2="";
+            $array3="";
+            $array4="";
+            $array5="";
+            $array6="";
+            $array7="";
+            $array8="";
+            if ($status == "all") {
+                $array1="btn-success";
+            }
+            if ($status == "waiting") {
+                $array2="btn-success";
+            }
+            if ($status == "canceled") {
+                $array3="btn-success";
+            }
+            if ($status == "rejected") {
+                $array4="btn-success";
+            }
+            if ($status == "refunded") {
+                $array5="btn-success";
+            }
+            if ($status == "accepted") {
+                $array6="btn-success";
+            }
+            if ($status == "done") {
+                $array7="btn-success";
+            }
+            if ($status == "served") {
+                $array8="btn-success";
+            }
+
+
                 echo <<<EOL
                 <h1>
                     Quản lý đơn hàng
@@ -203,14 +238,14 @@ if ($loginHandler->checkLogin() == false) {
                 <br>
 
                 <div>
-                    <button class= "statusButton btn btn-outline-dark" type="button" value = "all">Tất cả</button>
-                    <button class= "statusButton btn btn-outline-dark" type="button" value = "waiting">Chờ xác nhận</button>
-                    <button class= "statusButton btn btn-outline-dark" type="button" value = "canceled">Đã hủy</button>
-                    <button class= "statusButton btn btn-outline-dark" type="button" value = "rejected">Bị từ chối</button>
-                    <button class= "statusButton btn btn-outline-dark" type="button" value = "refunded">Đã hoàn tiền</button>
-                    <button class= "statusButton btn btn-outline-dark" type="button" value = "accepted">Đã xác nhận</button>
-                    <button class= "statusButton btn btn-outline-dark" type="button" value = "done">Đã hoàn thành</button>
-                    <button class= "statusButton btn btn-outline-dark" type="button" value = "served">Đã phục vụ</button>
+                    <button class= "statusButton btn $array1 btn-outline-dark" type="button" value = "all">Tất cả</button>
+                    <button class= "statusButton btn $array2 btn-outline-dark" type="button" value = "waiting">Chờ xác nhận</button>
+                    <button class= "statusButton btn $array3 btn-outline-dark" type="button" value = "canceled">Đã hủy</button>
+                    <button class= "statusButton btn $array4 btn-outline-dark" type="button" value = "rejected">Bị từ chối</button>
+                    <button class= "statusButton btn $array5 btn-outline-dark" type="button" value = "refunded">Đã hoàn tiền</button>
+                    <button class= "statusButton btn $array6 btn-outline-dark" type="button" value = "accepted">Đã xác nhận</button>
+                    <button class= "statusButton btn $array7 btn-outline-dark" type="button" value = "done">Đã hoàn thành</button>
+                    <button class= "statusButton btn $array8 btn-outline-dark" type="button" value = "served">Đã phục vụ</button>
                 </div>
                 <br>
                 EOL;
@@ -290,7 +325,7 @@ if ($loginHandler->checkLogin() == false) {
             </form>
         EOL;
         ?>
-        <script src="/js/user_menu.js"></script>
+        
         <script>
             $(".pageButton").click(function() {
                 $("#pageind").attr("value", $(this).attr("value"));
