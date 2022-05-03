@@ -57,7 +57,6 @@ wholeCartWindow.inWindow = 0
 $(".butto").click(function(){
     const id = this.parentElement.parentElement.getAttribute("data-id")
     const img = this.parentElement.parentElement.children[0].src;
-    console.log(img)
     const name = this.parentElement.parentElement.parentElement.children[1].textContent
     let price = this.parentElement.parentElement.parentElement.children[3].textContent
     price = price.replace("đ", '')
