@@ -275,8 +275,7 @@ if ($loginHandler->checkLogin() == false) {
         </div>
 
     </section>
-    <>
-        <!----content---->
+            <!----content---->
 
 
         <?php footer(); ?>
