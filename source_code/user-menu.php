@@ -290,6 +290,7 @@ if ($loginHandler->checkLogin() == false) {
             </form>
         EOL;
         ?>
+        <script src="/js/user_menu.js"></script>
         <script>
             $(".pageButton").click(function() {
                 $("#pageind").attr("value", $(this).attr("value"));
@@ -300,7 +301,9 @@ if ($loginHandler->checkLogin() == false) {
                 $("#status").attr("value", $(this).attr("value"));
                 $("#pageinfo").submit();
             });
-        </script>
+        </script>   
+
+        
 </body>
 
 </html>
