@@ -21,10 +21,13 @@
         <?php navBar(); ?>
         <section class="container shop_cont bg-white">
             <nav class="navbar shop_navbar navbar-expand-md navbar-light bg-white">
-                <div class="container-fluid p-0"> <a class="navbar-brand shop_navbrand text-uppercase fw-800" href="#">Dành
-                        cho bạn</a> <button class="navbar-toggler shop-navbar-toggler" type="button"
+                <div class="container-fluid p-0"> 
+                    <a class="navbar-brand shop_navbrand text-uppercase fw-800" href="#">Dành
+                        cho bạn</a> 
+                    <button class="navbar-toggler menu-butt shop-navbar-toggler" type="button"
                         data-bs-toggle="collapse" data-bs-target="#myNav" aria-controls="myNav" aria-expanded="false"
-                        aria-label="Toggle navigation"><span class="fas fa-bars butt"></span></button>
+                        aria-label="Toggle navigation"><span class="fas fa-bars butt"></span>
+                    </button>
                     <div class="collapse navbar-collapse" id="myNav">
                         <div class="navbar-nav shop_navbar_nav ms-auto"> <a class="nav-link shop-nav-link active" href="/food-menu.php?category=0"
                                 id="piza" id="piza">Pizza Thơm Lừng</a>
@@ -97,25 +100,22 @@
                 <div
                     
                     class="col-lg-4 col-md-12 d-flex flex-column align-items-center justify-content-center product-item my-3">
-                    <div data-id="$foodID" class="product"> <img class="pro-pic" src=$foodImage alt="">
+                    <div data-aos="fade-up" data-id="$foodID" class="product"> <img class="pro-pic" src=$foodImage alt="">
                         <ul class="d-flex align-items-center justify-content-center list-unstyled icons">
                             <li class="icon"><a href='#$foodID' class="fas fa-expand-arrows-alt"></a></li>
                             <li class="icon mx-3"><span class="far fa-heart"></span></li>
                             <li class="icon butto"><span class="fas fa-shopping-bag"></span></li>
                         </ul>
                     </div>
-                    <div class="title pt-4 pb-1">$foodTitle </div>
-                    <div class="d-flex align-content-center justify-content-center"> <span class="fas fa-star"></span>
-                        <span class="fas fa-star"></span> <span class="fas fa-star"></span> <span
-                            class="far fa-star"></span> <span class="far fa-star"></span> </div>
-                    <div class="price">$price</div>
+                    <div data-aos="fade-up" class="title pt-4 pb-1">$foodTitle </div>
+                    <div data-aos="fade-up" class="price"><span>$price</span><span>0đ</span></div>
                     <!-------THONG TIN CHI TIET------>
                     <a href="#" class="lightbox" id="$foodID">
                         <div class="lightbox-content">
                         <h1 style="color: #fff; margin-bottom: 1em">$foodTitle</h1>
                         <img src=$foodImage class="food-pict">
                         <h2 style="color: #fff"> Mô tả: $foodDesc</h2>
-                        <h2 style="color: #fff"> Giá: $price</h2>
+                        <h2 style="color: #fff"><span style="display:inline"> Giá: $price</span><span style="display:inline">0đ</span></h2>
                         <h2 style="color: #fff"> Còn hàng: $active</h2>
                         <div class="fixed-top cross fas fa-times" style="color: #fff; text-align: left;"></div>
                         </div>

@@ -51,8 +51,6 @@ class LocalCart{
        updateCartUI()
     }
 }
-
-
 const cartIcon = document.querySelector('.fa-cart-arrow-down')
 const wholeCartWindow = document.querySelector('.whole-cart-window')
 wholeCartWindow.inWindow = 0
@@ -67,12 +65,11 @@ $(".butto").click(function(){
     LocalCart.addItemToLocalCart(id, item)
 })
 
-
 cartIcon.addEventListener('click', ()=>{
 if(wholeCartWindow.classList.contains('hide'))
 wholeCartWindow.classList.remove('hide');
 else wholeCartWindow.classList.add('hide');
-})
+});
  
 
 function updateCartUI(){

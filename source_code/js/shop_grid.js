@@ -10,71 +10,73 @@ document.addEventListener("DOMContentLoaded", function(event) {
     } 
     });
 
-let pizza = document.getElementById("pizza");
-let appetizer = document.getElementById("appetizer");
-let beverage = document.getElementById("beverage");
-
-let pizza_button = document.getElementById("piza");
-let appetizer_button = document.getElementById("side-food");
-let beverage_button = document.getElementById("drink");
-
-function drinkTime() {
-    if (appetizer_button.classList.contains('active'))
+$("#piza").click(function(){
+    if ($("#side-food").classList.contains('active'))
     {
-        appetizer_button.classList.remove('active');
+        $("#side-food").classList.remove('active');
     }
-    if (!beverage_button.classList.contains('active'))
+    if ($("#drink").classList.contains('active'))
     {
-        beverage_button.classList.add('active');
+        $("#drink").classList.remove('active');
     }
-    if (pizza_button.classList.contains('active'))
+    if (!this.classList.contains('active'))
     {
-        pizza_button.classList.remove('active');
+        this.classList.add('active');
     }
-    pizza.style.display = "none";
-    appetizer.style.display = "none";
-    beverage.style.display = "block";
-}
-
-function pizzaTime() {
-    if (appetizer_button.classList.contains('active'))
+    $("#pizza").style.display = "block";
+    $("#appetizer").style.display = "none";
+    $("#beverage").style.display = "none";
+})
+$("#side-food").click(function(){
+    if (!this.classList.contains('active'))
     {
-        appetizer_button.classList.remove('active');
+        this.classList.add('active');
     }
-    if (beverage_button.classList.contains('active'))
+    if ($("#drink").classList.contains('active'))
     {
-        beverage_button.classList.remove('active');
+        $("#drink").classList.remove('active');
     }
-    if (!pizza_button.classList.contains('active'))
+    if ($("#piza").classList.contains('active'))
     {
-        pizza_button.classList.add('active');
+        $("#piza").classList.remove('active');
     }
-    pizza.style.display = "block";
-    appetizer.style.display = "none";
-    beverage.style.display = "none";
-}
-
-function appeTime() {
-    if (!appetizer_button.classList.contains('active'))
+    $("#pizza").style.display = "none";
+    $("#appetizer").style.display = "block";
+    $("#beverage").style.display = "none";
+})
+$("#drink").click(function(){
+    if ($("#side-food").classList.contains('active'))
     {
-        appetizer_button.classList.add('active');
+        $("#side-food").classList.remove('active');
     }
-    if (beverage_button.classList.contains('active'))
+    if (!this.classList.contains('active'))
     {
-        beverage_button.classList.remove('active');
+        this.classList.add('active');
     }
-    if (pizza_button.classList.contains('active'))
+    if ($("#piza").classList.contains('active'))
     {
-        pizza_button.classList.remove('active');
+        $("#piza").classList.remove('active');
     }
-    pizza.style.display = "none";
-    appetizer.style.display = "block";
-    beverage.style.display = "none";
-}
-
-pizza_button.onclick = pizzaTime();
-appetizer_button.onclick = appeTime();
-beverage_button.onclick = drinkTime();
-
+    $("#pizza").style.display = "none";
+    $("#appetizer").style.display = "none";
+    $("#beverage").style.display = "block";
+})
+$('.title').each(function(){
+    let rand = Math.floor(Math.random() * 3);
+    let star_vote1 = $('<div data-aos="fade-up" class="d-flex align-content-center justify-content-center rating"><span class="fas fa-star"></span><span class="fas fa-star"></span><span class="fas fa-star"></span><span class="fas fa-star"></span><span class="fas fa-star"></span></div>');
+    let star_vote2 = $('<div data-aos="fade-up" class="d-flex align-content-center justify-content-center rating"><span class="fas fa-star"></span><span class="fas fa-star"></span><span class="fas fa-star"></span><span class="fas fa-star"></span><span class="far fa-star"></span></div>');
+    let star_vote3 = $('<div data-aos="fade-up" class="d-flex align-content-center justify-content-center rating"><span class="fas fa-star"></span><span class="fas fa-star"></span><span class="fas fa-star"></span><span class="far fa-star"></span><span class="far fa-star"></span></div>');
+    if (rand == 0)
+    {
+        star_vote1.insertAfter(this);
+    }
+    else if (rand == 1)
+    {
+        star_vote2.insertAfter(this);
+    }
+    else {
+        star_vote3.insertAfter(this);
+    }  
+})
 
 

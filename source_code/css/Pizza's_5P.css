@@ -75,3 +75,9 @@
 .comment {
     padding-right: 100px;
 }
+.main-menu , .open-menu {
+    font-size:x-large;
+}
+.fa-star {
+    display:inline !important;
+}
