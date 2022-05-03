@@ -3,16 +3,14 @@
 function headerLinkInclude()
 {
 ?>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
     <!--Font awesome-->
     <script src="https://kit.fontawesome.com/3f838e4efa.js" crossorigin="anonymous"></script>
     <!--AOS include-->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!--CSS include-->
     <link href="css/navbar.css" rel="stylesheet">
     <link href="css/searchbar.css" rel="stylesheet">
-    <link href="css/BOOK@LOVE.css" rel="stylesheet">
+    <link href="css/Pizza's_5P.css" rel="stylesheet">
     <link href="css/offcanvas.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/cart.css" />
@@ -20,11 +18,7 @@ function headerLinkInclude()
     <link rel="stylesheet" type="text/css" href="css/shop_grid.css" />
     <link rel="shortcut icon" href="images/PizaTop.ico" type="image/x-icon" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
     </script>
 <?php
 }
@@ -35,7 +29,7 @@ function navBar()
 ?>
     <nav class="navbar navbar-expand-lg navbar-light mask-custom shadow-0">
         <div class="container">
-             <button class="navbar-toggler justify-content-start" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+             <button class="navbar-toggler nav-butt justify-content-start" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
              </button>
 
@@ -43,7 +37,7 @@ function navBar()
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item option">
-                        <a class="nav-link" href="/food-menu.php" style="text-align:center;"><strong>Trang chủ</strong></a>
+                        <a class="nav-link main-menu" href="/food-menu.php" style="text-align:center;"><strong>Trang chủ</strong></a>
                     </li>
                     <li class="nav-item option">
                         <div id="mySidenav" class="sidenav">
@@ -55,14 +49,14 @@ function navBar()
                         </div>
 
                         <!-- Use any element to open the sidenav -->
-                        <a class="nav-link" onclick="openNav()" href="#" style="text-align:center;">Sản Phẩm</a>
+                        <a class="nav-link open-menu" onclick="openNav()" href="#" style="text-align:center;">Sản Phẩm</a>
                     </li>
                 </ul>
 
 
                 <ul class="navbar-nav d-flex flex-row">
-                    <li class="cart-box nav-item">
-                        <div class="cart-icon">
+                    <li class="cart-box nav-item option">
+                        <div class="cart-icon" style="text-align:center;">
                             <i class="fas fa-cart-arrow-down fa-2x"></i>
                         </div>
                         <div class="whole-cart-window hide">
@@ -74,16 +68,16 @@ function navBar()
                         </div>
                     </li>
                 </ul>
-                <ul class="navbar-nav d-flex flex-row">
-                    <li class="nav-item col-md-12" style="margin-left:50%; transform: translateX(-50%);">
+                <ul class="navbar-nav d-flex flex-row piza-love">
+                    <li class="nav-item option bye-love" style="margin-left: 50%; transform: translateX(-50%);">
                         <a class="nav-link" href="/food-menu.php">
-                            <div class="nav-link book-love" style="text-align:center;">PIZZA'S 5P</div>
+                            <div class="nav-link book-love" style="text-align:center">PIZZA'S 5P</div>
                         </a>
                     </li>
                 </ul>
                 <!---- login/signup khi chua dang nhap, xem info khi da dang nap---->
                 <ul class="navbar-nav d-flex flex-row" id="login-fo">
-                <li class="nav-item me-3 me-lg-0">
+                <li class="nav-item option">
                 <?php
                 if ($loginHandler->checkLogin() == false) {
                 ?>
@@ -94,7 +88,6 @@ function navBar()
                 } else {
                     $username = $userHandler->loggedUser['username'];
                     echo <<<EOL
-                            <span>&nbsp;</span>
                             <a class="btn btn-outline-secondary" href="user-menu.php">Xin chào&nbsp; $username</a>
                             <a href="logout.php" class="btn btn-secondary">Đăng xuất</a>
                         EOL;
@@ -166,6 +159,10 @@ function footer()
     </footer>
     <script src="/js/offcanvas.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     <script src="/js/cart.js"></script>
     <script src="/js/shop_grid.js"></script>
     <script src="/js/user_menu.js"></script>
@@ -175,87 +172,6 @@ function footer()
     </script>
 
 
-<?php
-}
-function paymentHeader(){
-    global $loginHandler;
-    global $userHandler;
-?>
-    <nav class="navbar navbar-expand-lg navbar-light mask-custom shadow-0">
-        <div class="container">
-            <button class="navbar-toggler justify-content-start" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-----di chuyen cuc này đi chỗ khác cho đẹp----->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item option">
-                        <a class="nav-link" href="/food-menu.php"><strong>Trang chủ</strong></a>
-                    </li>
-                    <li class="nav-item option">
-                        <div id="mySidenav" class="sidenav">
-                            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                            <h1 class="genre" href="#">Sản Phẩm</h1>
-                            <a href="/food-menu.php?category=0">Pizza</a>
-                            <a href="/food-menu.php?category=2">Món Ăn Kèm</a>
-                            <a href="/food-menu.php?category=1">Đồ Uống</a>
-                        </div>
-
-                        <!-- Use any element to open the sidenav -->
-                        <a class="nav-link" onclick="openNav()" href="#">Sản Phẩm</a>
-                    </li>
-                </ul>
-
-
-                <ul class="navbar-nav d-flex flex-row">
-                    <li class="cart-box nav-item">
-                        <div class="cart-icon">
-                            <i class="fas fa-cart-arrow-down fa-2x"></i>
-                        </div>
-                        <div class="whole-cart-window hide">
-                            <h2>Giỏ Hàng</h2>
-                            <div class="cart-wrapper">
-                            </div>
-                            <div class="subtotal">Tổng Cộng: 0đ</div>
-                            <div class="checkout"><a href="payment.php">Thanh Toán</a></div>
-                        </div>
-                    </li>
-                    <li class="nav-item me-3 me-lg-0">
-                        <a class="nav-link" href="/food-menu.php">
-                            <div class="nav-link book-love">PIZZA'S 5P</div>
-                        </a>
-                    </li>
-                </ul>
-
-                <!---- login/signup khi chua dang nhap, xem info khi da dang nap---->
-                <ul class="navbar-nav d-flex flex-row">
-                <li class="nav-item me-3 me-lg-0">
-                <?php
-                if ($loginHandler->checkLogin() == false) {
-                ?>
-                    <a class="btn btn-secondary" href="login.php">Đăng nhập</a>&nbsp;
-                    <a class="btn btn-outline-secondary" href="signup.php">Đăng kí</a>
-                </li>
-                <?php
-                } else {
-                    $username = $userHandler->loggedUser['username'];
-                    echo <<<EOL
-                            <span>&nbsp;</span>
-                            <a class="btn btn-outline-secondary" href="user-menu.php">Xin chào&nbsp; $username</a>
-                            <a href="logout.php" class="btn btn-secondary">Đăng xuất</a>
-                        EOL;
-
-                    if ($userHandler->loggedUser['privil'] == "admin") {
-                        echo "&nbsp;<a class='btn btn-dark' href=\"admin/admin.php\">Đến menu admin</a>";
-                    }
-                }
-                ?>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    
 <?php
 }
 ?>
