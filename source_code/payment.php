@@ -27,7 +27,7 @@
         <title>Thanh toán</title>
     </head>
     <body>
-        <?php paymentHeader(); ?>
+        <?php navBar(); ?>
         <h1 class="don-hang">ĐƠN HÀNG</h1>
         <!----content---->
         <section class="container shop_cont bg-white">
